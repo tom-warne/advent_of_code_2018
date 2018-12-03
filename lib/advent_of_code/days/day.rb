@@ -8,7 +8,10 @@ module AdventOfCode
         name.to_s.gsub(/^.*::/, '')
       end
 
-      DATE         = Date.parse('2018-12-01') # Date.parse(class_name)
+      def self.date
+        raise 'Must be implemented by inheriting classes'
+      end
+
       PUZZLE_TYPES = %i[SILVER GOLD].freeze
 
 
