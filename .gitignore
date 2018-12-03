@@ -1,0 +1,6 @@
+# Ignore System Files
+.DS_Store
+
+# Ignore YARD Files
+.yardoc/*
+doc

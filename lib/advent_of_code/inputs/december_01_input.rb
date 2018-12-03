@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
-class AdventOfCode
-  class December01
-    module Input
+module AdventOfCode
+  module Inputs
+    module December01Input
       INITIAL_FREQUENCY = 0
       FREQUENCY_CHANGES = [
         -19,
