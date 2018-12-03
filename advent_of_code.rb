@@ -14,12 +14,12 @@ class AdventOfCode
   END_DATE   = Date.parse('2018-12-01').freeze
   DATE_RANGE = (START_DATE..END_DATE).freeze
 
-  TYPES = %i[GOLD SILVER].freeze
+  TYPES = %i[SILVER GOLD].freeze
 
   def self.solve!
     DATE_RANGE.each do |date|
       TYPES.each do |type|
-        CompletionMessage.new(const_get "AdventOfCode::#{date.strftime('%B%d')}::#{TYPE}_PUZZLE")
+        CompletionMessage.new(const_get "AdventOfCode::#{date.strftime('%B%d')}::#{type}_PUZZLE")
       end
     end
   end
