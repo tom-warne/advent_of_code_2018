@@ -19,10 +19,11 @@ module AdventOfCode
       end
 
       SILVER_PUZZLE = {
-        answer:  calculate_checksum!,
-        date:    DATE,
-        message: 'The resulting checksum is',
-        type:    :SILVER
+        answer:     :calculate_checksum!,
+        class_name: :December02,
+        date:       DATE,
+        message:    'The resulting checksum is',
+        type:       :SILVER
       }
 
       # Solves the December 2nd Gold Puzzle
@@ -38,7 +39,7 @@ module AdventOfCode
             # match_ids.each do |match_id|
               match_chars = match_id.chars
               match       = id.chars.map.with_index { |c, i| c if match_chars[i] == c }.join
-              puts match
+
               return match if match.length == ID_LENGTH - 1
             end
           end
@@ -46,10 +47,11 @@ module AdventOfCode
       end
 
       GOLD_PUZZLE = {
-        answer:  find_similar_id_pair!,
-        date:    DATE,
-        message: 'The characters shared by the ids are',
-        type:    :GOLD
+        answer:     :find_similar_id_pair!,
+        class_name: :December02,
+        date:       DATE,
+        message:    'The characters shared by the ids are',
+        type:       :GOLD
       }
 
     end

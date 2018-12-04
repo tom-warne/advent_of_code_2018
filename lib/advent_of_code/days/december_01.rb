@@ -15,10 +15,11 @@ module AdventOfCode
       end
 
       SILVER_PUZZLE = {
-        answer:  sum_frequency_changes!,
-        date:    DATE,
-        message: 'The resulting frequency is',
-        type:    :SILVER
+        answer:     :sum_frequency_changes!,
+        class_name: :December01,
+        date:       DATE,
+        message:    'The resulting frequency is',
+        type:       :SILVER
       }
 
       # Solves the December 1st Gold Puzzle
@@ -36,10 +37,11 @@ module AdventOfCode
       end
 
       GOLD_PUZZLE = {
-        answer:  find_repeated_frequency!,
-        date:    DATE,
-        message: 'The first frequency to repeat is',
-        type:    :GOLD
+        answer:     :find_repeated_frequency!,
+        class_name: :December01,
+        date:       DATE,
+        message:    'The first frequency to repeat is',
+        type:       :GOLD
       }
 
     end

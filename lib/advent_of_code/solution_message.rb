@@ -28,9 +28,9 @@ module AdventOfCode
     # @!endgroup
 
     #
-    def initialize(answer:, date:, message:, type:)
+    def initialize(answer:, class_name:, date:, message:, type:)
       puts RESULT % {
-        answer:  answer,
+        answer:  Object.const_get("AdventOfCode::Days::#{class_name}").public_send(answer),
         date:    date.strftime('%B %d'),
         message: message,
         type:    TYPES[type]
