@@ -7,10 +7,6 @@ module AdventOfCode
     class December01 < Day
       include AdventOfCode::Inputs::December01Input
 
-      def self.date
-        Date.parse(class_name)
-      end
-
       # Solves the December 1st Silver Puzzle
       #
       # @return [Integer<484>] the sum of all given frequency changes
@@ -20,7 +16,7 @@ module AdventOfCode
 
       SILVER_PUZZLE = {
         answer:  sum_frequency_changes!,
-        date:    date,
+        date:    DATE,
         message: 'The resulting frequency is',
         type:    :SILVER
       }
@@ -41,7 +37,7 @@ module AdventOfCode
 
       GOLD_PUZZLE = {
         answer:  find_repeated_frequency!,
-        date:    date,
+        date:    DATE,
         message: 'The first frequency to repeat is',
         type:    :GOLD
       }

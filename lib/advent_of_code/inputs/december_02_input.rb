@@ -3,7 +3,8 @@
 module AdventOfCode
   module Inputs
     module December02Input
-      BOX_IDS = [
+      ID_LENGTH = 26
+      BOX_IDS   = [
         'icxjubroqtunzeyzpomfksahgw',
         'ibxjvbroqtunleyzjdmfksahow',
         'icxjvbroqtinleyzpdmflsahnw',

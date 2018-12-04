@@ -7,11 +7,6 @@ module AdventOfCode
     class December02 < Day
       include AdventOfCode::Inputs::December02Input
 
-      def self.date
-        Date.parse(class_name)
-      end
-
-
       # Solves the December 2nd Silver Puzzle
       #
       # @return [Integer<6888>] the checksum of all given ids
@@ -25,29 +20,35 @@ module AdventOfCode
 
       SILVER_PUZZLE = {
         answer:  calculate_checksum!,
-        date:    date,
+        date:    DATE,
         message: 'The resulting checksum is',
         type:    :SILVER
       }
+
+      # Solves the December 2nd Gold Puzzle
       #
-      # # Solves the December 2nd Gold Puzzle
-      # #
-      # # @param  [Hash<Integer, Nil>] freqs the table of frequencies that `freq` is being appended to
-      # # @param  [Integer]            freq  the frequency to start the table on
-      # #
-      # # @return [Integer<367>] the first frequency that is already contained in `freqs`
-      # def self.find_repeated_frequency!(freqs: {INITIAL_FREQUENCY => nil}, freq: INITIAL_FREQUENCY)
-      #   FREQUENCY_CHANGES.each do |change|
-      #     freq += change
-      #     freqs.has_key?(freq) ? (return freq) : freqs[freq] = nil
-      #   end
-      #   find_repeated_frequency!(freqs: freqs, freq: freq)
-      # end
-      #
+      # @return [String<icxjvbrobtunlelzpdmfkahgs>] the string of characters shared by the two ids
+      def self.find_similar_id_pair!
+        # BOX_IDS.group_by(&:sum).tap do |hash|
+        BOX_IDS.dup.tap do |ids|
+          until ids.empty?
+            id = ids.pop
+            # hash.slice(*(checksum..(checksum + MAX_CHECKSUM_SEPARATION))).each do |(match_checksum, match_ids)|
+            ids.each do |match_id|
+            # match_ids.each do |match_id|
+              match_chars = match_id.chars
+              match       = id.chars.map.with_index { |c, i| c if match_chars[i] == c }.join
+              puts match
+              return match if match.length == ID_LENGTH - 1
+            end
+          end
+        end
+      end
+
       GOLD_PUZZLE = {
-        answer:  nil,
-        date:    date,
-        message: 'tbd',
+        answer:  find_similar_id_pair!,
+        date:    DATE,
+        message: 'The characters shared by the ids are',
         type:    :GOLD
       }
 

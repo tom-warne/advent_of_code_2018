@@ -18,7 +18,7 @@ module AdventOfCode
     # @!group Components
     ANSWER  = "#{GREEN}%{answer}#{END_C}"
     DATE    = "#{RED}%{date} (#{END_C}"
-    MESSAGE = "#{RED}): %{message}#{END_C}"
+    MESSAGE = "#{RED}): %{message}#{END_C}:"
     TYPES   = {
                 GOLD:   "#{YELLOW} Gold #{END_C}",
                 SILVER: "#{GRAY}Silver#{END_C}"
