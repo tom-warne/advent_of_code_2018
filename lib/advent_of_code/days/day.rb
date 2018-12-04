@@ -8,7 +8,8 @@ module AdventOfCode
         name.to_s.gsub(/^.*::/, '')
       end
 
-      DATE         = Date.parse('2018-12-01') # Date.parse(class_name)
+      DATE = Date._parse(class_name).empty? ? Date.today : Date.parse(class_name)
+
       PUZZLE_TYPES = %i[SILVER GOLD].freeze
 
 
