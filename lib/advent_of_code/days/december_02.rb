@@ -22,7 +22,7 @@ module AdventOfCode
         answer:     :calculate_checksum!,
         class_name: :December02,
         date:       DATE,
-        message:    'The resulting checksum is',
+        message:    'The resulting checksum:',
         type:       :SILVER
       }
 
@@ -50,7 +50,7 @@ module AdventOfCode
         answer:     :find_similar_id_pair!,
         class_name: :December02,
         date:       DATE,
-        message:    'The characters shared by the ids are',
+        message:    'The characters shared by the ids:',
         type:       :GOLD
       }
 

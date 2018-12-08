@@ -18,7 +18,7 @@ module AdventOfCode
         answer:     :sum_frequency_changes!,
         class_name: :December01,
         date:       DATE,
-        message:    'The resulting frequency is',
+        message:    'The resulting frequency:',
         type:       :SILVER
       }
 
@@ -40,7 +40,7 @@ module AdventOfCode
         answer:     :find_repeated_frequency!,
         class_name: :December01,
         date:       DATE,
-        message:    'The first frequency to repeat is',
+        message:    'The first frequency to repeat:',
         type:       :GOLD
       }
 
