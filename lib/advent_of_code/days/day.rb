@@ -11,8 +11,6 @@ module AdventOfCode
       DATE = Date._parse(class_name).empty? ? Date.today : Date.parse(class_name)
 
       PUZZLE_TYPES = %i[SILVER GOLD].freeze
-
-
     end
   end
 end
