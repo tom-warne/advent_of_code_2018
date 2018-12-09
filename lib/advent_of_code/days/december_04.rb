@@ -17,7 +17,7 @@ module AdventOfCode
 
       # Solves the December 4th Silver Puzzle
       #
-      # @param  [Symbol] sort_method method for sorting the initial parsed input
+      # @param  sort_method [Symbol] method for sorting the initial parsed input
       # @return [Integer<11367>] id of sleepiest guard * minute most often asleep
       def self.determine_sleepiest_guard!(sort_method: :sum)
         parse_input!
@@ -53,12 +53,12 @@ module AdventOfCode
 
       private
 
-      # Formats the input data into a count of how many times a guard is asleep at any given time
+      # Formats the input data into a count of how many times a guard is asleep at any given time.
       # Memoized in `@@parsed_input` to avoid repeating a costly operation.
       # @todo Look into using a struct here -TW
       #
       # @private
-      # @return [Hash<String, Hash<String, Int>>] {guard_id => {%H%M => count(sleep)}}
+      # @return [Hash<String, Hash<String, Int>>] \{ guard_id =>  \{ %H%M => count(sleep_mins) } }
       def self.parse_input!
         return @@parsed_input if defined? @@parsed_input
 
@@ -82,7 +82,7 @@ module AdventOfCode
       # Formats the input data into a usable form sorted chronologically
       #
       # @private
-      # @return [Array<DateTime,String>] array of dates and actions performed
+      # @return [Array<DateTime,String>] pairs of a date and an action performed
       def self.sorted_input
         SLEEP_SCHEDULES
           .split("\n")

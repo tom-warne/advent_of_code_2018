@@ -14,7 +14,7 @@ module AdventOfCode
 
       # Solves the December 5th Silver Puzzle
       #
-      # @param  [String] chain the polymer chain from which to remove units
+      # @param  chain [String] the polymer chain from which to remove units
       # @return [Integer<10978>] the number of chemical units left after the reaction
       def self.count_units_left!(chain: POLYMER_CHAIN)
         orig_chain_length = chain.length

@@ -30,7 +30,7 @@ module AdventOfCode
 
       # Solves the December 3rd Gold Puzzle
       #
-      # @return [Int<>] the id of the only claim that is not overlapping
+      # @return [Int<877>] the id of the only claim that is not overlapping
       def self.find_claim_without_overlap!
         create_fabric!
 
