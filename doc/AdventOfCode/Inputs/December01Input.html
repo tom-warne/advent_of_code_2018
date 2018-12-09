@@ -1,0 +1,1136 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>
+  Module: AdventOfCode::Inputs::December01Input
+  
+    &mdash; Documentation by YARD 0.9.16
+  
+</title>
+
+  <link rel="stylesheet" href="../../css/style.css" type="text/css" charset="utf-8" />
+
+  <link rel="stylesheet" href="../../css/common.css" type="text/css" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  pathId = "AdventOfCode::Inputs::December01Input";
+  relpath = '../../';
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="../../js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../../js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div class="nav_wrap">
+      <iframe id="nav" src="../../class_list.html?1"></iframe>
+      <div id="resizer"></div>
+    </div>
+
+    <div id="main" tabindex="-1">
+      <div id="header">
+        <div id="menu">
+  
+    <a href="../../_index.html">Index (D)</a> &raquo;
+    <span class='title'><span class='object_link'><a href="../../AdventOfCode.html" title="AdventOfCode (module)">AdventOfCode</a></span></span> &raquo; <span class='title'><span class='object_link'><a href="../Inputs.html" title="AdventOfCode::Inputs (module)">Inputs</a></span></span>
+     &raquo; 
+    <span class="title">December01Input</span>
+  
+</div>
+
+        <div id="search">
+  
+    <a class="full_list_link" id="class_list_link"
+        href="../../class_list.html">
+
+        <svg width="24" height="24">
+          <rect x="0" y="4" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="12" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="20" width="24" height="4" rx="1" ry="1"></rect>
+        </svg>
+    </a>
+  
+</div>
+        <div class="clear"></div>
+      </div>
+
+      <div id="content"><h1>Module: AdventOfCode::Inputs::December01Input
+  
+  
+  
+</h1>
+<div class="box_info">
+  
+
+  
+  
+  
+  
+  
+
+  
+  <dl>
+    <dt>Included in:</dt>
+    <dd><span class='object_link'><a href="../Days/December01.html" title="AdventOfCode::Days::December01 (class)">Days::December01</a></span></dd>
+  </dl>
+  
+
+  
+  <dl>
+    <dt>Defined in:</dt>
+    <dd>lib/advent_of_code/inputs/december_01_input.rb</dd>
+  </dl>
+  
+</div>
+
+
+  
+    <h2>
+      Constant Summary
+      <small><a href="#" class="constants_summary_toggle">collapse</a></small>
+    </h2>
+
+    <dl class="constants">
+      
+        <dt id="INITIAL_FREQUENCY-constant" class="">INITIAL_FREQUENCY =
+          
+        </dt>
+        <dd><pre class="code"><span class='int'>0</span></pre></dd>
+      
+        <dt id="FREQUENCY_CHANGES-constant" class="">FREQUENCY_CHANGES =
+          
+        </dt>
+        <dd><pre class="code"><span class='lbracket'>[</span>
+  <span class='op'>-</span><span class='int'>19</span><span class='comma'>,</span>
+  <span class='int'>+8</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>10</span><span class='comma'>,</span>
+  <span class='int'>+9</span><span class='comma'>,</span>
+  <span class='int'>+2</span><span class='comma'>,</span>
+  <span class='int'>+19</span><span class='comma'>,</span>
+  <span class='int'>+5</span><span class='comma'>,</span>
+  <span class='int'>+8</span><span class='comma'>,</span>
+  <span class='int'>+13</span><span class='comma'>,</span>
+  <span class='int'>+16</span><span class='comma'>,</span>
+  <span class='int'>+4</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>8</span><span class='comma'>,</span>
+  <span class='int'>+16</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>10</span><span class='comma'>,</span>
+  <span class='int'>+11</span><span class='comma'>,</span>
+  <span class='int'>+13</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>12</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>5</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>15</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>12</span><span class='comma'>,</span>
+  <span class='int'>+9</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>6</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>18</span><span class='comma'>,</span>
+  <span class='int'>+5</span><span class='comma'>,</span>
+  <span class='int'>+3</span><span class='comma'>,</span>
+  <span class='int'>+18</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>3</span><span class='comma'>,</span>
+  <span class='int'>+5</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>19</span><span class='comma'>,</span>
+  <span class='int'>+21</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>9</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>9</span><span class='comma'>,</span>
+  <span class='int'>+20</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>18</span><span class='comma'>,</span>
+  <span class='int'>+11</span><span class='comma'>,</span>
+  <span class='int'>+11</span><span class='comma'>,</span>
+  <span class='int'>+17</span><span class='comma'>,</span>
+  <span class='int'>+17</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>20</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>7</span><span class='comma'>,</span>
+  <span class='int'>+5</span><span class='comma'>,</span>
+  <span class='int'>+7</span><span class='comma'>,</span>
+  <span class='int'>+7</span><span class='comma'>,</span>
+  <span class='int'>+7</span><span class='comma'>,</span>
+  <span class='int'>+7</span><span class='comma'>,</span>
+  <span class='int'>+16</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>12</span><span class='comma'>,</span>
+  <span class='int'>+18</span><span class='comma'>,</span>
+  <span class='int'>+10</span><span class='comma'>,</span>
+  <span class='int'>+3</span><span class='comma'>,</span>
+  <span class='int'>+15</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>10</span><span class='comma'>,</span>
+  <span class='int'>+8</span><span class='comma'>,</span>
+  <span class='int'>+5</span><span class='comma'>,</span>
+  <span class='int'>+7</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>16</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>16</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>2</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>15</span><span class='comma'>,</span>
+  <span class='int'>+3</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>6</span><span class='comma'>,</span>
+  <span class='int'>+9</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>15</span><span class='comma'>,</span>
+  <span class='int'>+19</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>12</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>20</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>1</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>12</span><span class='comma'>,</span>
+  <span class='int'>+11</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>22</span><span class='comma'>,</span>
+  <span class='int'>+10</span><span class='comma'>,</span>
+  <span class='int'>+15</span><span class='comma'>,</span>
+  <span class='int'>+2</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>10</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>19</span><span class='comma'>,</span>
+  <span class='int'>+1</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>18</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>21</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>4</span><span class='comma'>,</span>
+  <span class='int'>+16</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>15</span><span class='comma'>,</span>
+  <span class='int'>+13</span><span class='comma'>,</span>
+  <span class='int'>+20</span><span class='comma'>,</span>
+  <span class='int'>+7</span><span class='comma'>,</span>
+  <span class='int'>+23</span><span class='comma'>,</span>
+  <span class='int'>+13</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>3</span><span class='comma'>,</span>
+  <span class='int'>+10</span><span class='comma'>,</span>
+  <span class='int'>+8</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>7</span><span class='comma'>,</span>
+  <span class='int'>+4</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>19</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>7</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>4</span><span class='comma'>,</span>
+  <span class='int'>+19</span><span class='comma'>,</span>
+  <span class='int'>+20</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>18</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>5</span><span class='comma'>,</span>
+  <span class='int'>+11</span><span class='comma'>,</span>
+  <span class='int'>+22</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>14</span><span class='comma'>,</span>
+  <span class='int'>+15</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>3</span><span class='comma'>,</span>
+  <span class='int'>+16</span><span class='comma'>,</span>
+  <span class='int'>+20</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>16</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>11</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>12</span><span class='comma'>,</span>
+  <span class='int'>+7</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>13</span><span class='comma'>,</span>
+  <span class='int'>+7</span><span class='comma'>,</span>
+  <span class='int'>+12</span><span class='comma'>,</span>
+  <span class='int'>+20</span><span class='comma'>,</span>
+  <span class='int'>+9</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>15</span><span class='comma'>,</span>
+  <span class='int'>+1</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>14</span><span class='comma'>,</span>
+  <span class='int'>+11</span><span class='comma'>,</span>
+  <span class='int'>+16</span><span class='comma'>,</span>
+  <span class='int'>+13</span><span class='comma'>,</span>
+  <span class='int'>+9</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>16</span><span class='comma'>,</span>
+  <span class='int'>+18</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>8</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>6</span><span class='comma'>,</span>
+  <span class='int'>+17</span><span class='comma'>,</span>
+  <span class='int'>+7</span><span class='comma'>,</span>
+  <span class='int'>+15</span><span class='comma'>,</span>
+  <span class='int'>+7</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>15</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>15</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>14</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>16</span><span class='comma'>,</span>
+  <span class='int'>+15</span><span class='comma'>,</span>
+  <span class='int'>+17</span><span class='comma'>,</span>
+  <span class='int'>+19</span><span class='comma'>,</span>
+  <span class='int'>+6</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>16</span><span class='comma'>,</span>
+  <span class='int'>+13</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>12</span><span class='comma'>,</span>
+  <span class='int'>+20</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>18</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>11</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>8</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>14</span><span class='comma'>,</span>
+  <span class='int'>+18</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>11</span><span class='comma'>,</span>
+  <span class='int'>+6</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>16</span><span class='comma'>,</span>
+  <span class='int'>+14</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>10</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>6</span><span class='comma'>,</span>
+  <span class='int'>+1</span><span class='comma'>,</span>
+  <span class='int'>+16</span><span class='comma'>,</span>
+  <span class='int'>+4</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>6</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>8</span><span class='comma'>,</span>
+  <span class='int'>+27</span><span class='comma'>,</span>
+  <span class='int'>+18</span><span class='comma'>,</span>
+  <span class='int'>+10</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>3</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>2</span><span class='comma'>,</span>
+  <span class='int'>+11</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>10</span><span class='comma'>,</span>
+  <span class='int'>+11</span><span class='comma'>,</span>
+  <span class='int'>+7</span><span class='comma'>,</span>
+  <span class='int'>+19</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>1</span><span class='comma'>,</span>
+  <span class='int'>+11</span><span class='comma'>,</span>
+  <span class='int'>+14</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>16</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>10</span><span class='comma'>,</span>
+  <span class='int'>+15</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>9</span><span class='comma'>,</span>
+  <span class='int'>+2</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>1</span><span class='comma'>,</span>
+  <span class='int'>+13</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>4</span><span class='comma'>,</span>
+  <span class='int'>+6</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>9</span><span class='comma'>,</span>
+  <span class='int'>+10</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>2</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>10</span><span class='comma'>,</span>
+  <span class='int'>+17</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>14</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>10</span><span class='comma'>,</span>
+  <span class='int'>+15</span><span class='comma'>,</span>
+  <span class='int'>+17</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>12</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>15</span><span class='comma'>,</span>
+  <span class='int'>+18</span><span class='comma'>,</span>
+  <span class='int'>+8</span><span class='comma'>,</span>
+  <span class='int'>+13</span><span class='comma'>,</span>
+  <span class='int'>+3</span><span class='comma'>,</span>
+  <span class='int'>+17</span><span class='comma'>,</span>
+  <span class='int'>+14</span><span class='comma'>,</span>
+  <span class='int'>+1</span><span class='comma'>,</span>
+  <span class='int'>+15</span><span class='comma'>,</span>
+  <span class='int'>+18</span><span class='comma'>,</span>
+  <span class='int'>+7</span><span class='comma'>,</span>
+  <span class='int'>+15</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>2</span><span class='comma'>,</span>
+  <span class='int'>+9</span><span class='comma'>,</span>
+  <span class='int'>+3</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>1</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>18</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>15</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>11</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>10</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>1</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>14</span><span class='comma'>,</span>
+  <span class='int'>+13</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>18</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>2</span><span class='comma'>,</span>
+  <span class='int'>+5</span><span class='comma'>,</span>
+  <span class='int'>+5</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>7</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>5</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>12</span><span class='comma'>,</span>
+  <span class='int'>+4</span><span class='comma'>,</span>
+  <span class='int'>+19</span><span class='comma'>,</span>
+  <span class='int'>+15</span><span class='comma'>,</span>
+  <span class='int'>+9</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>17</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>10</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>5</span><span class='comma'>,</span>
+  <span class='int'>+13</span><span class='comma'>,</span>
+  <span class='int'>+15</span><span class='comma'>,</span>
+  <span class='int'>+7</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>10</span><span class='comma'>,</span>
+  <span class='int'>+12</span><span class='comma'>,</span>
+  <span class='int'>+1</span><span class='comma'>,</span>
+  <span class='int'>+9</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>18</span><span class='comma'>,</span>
+  <span class='int'>+14</span><span class='comma'>,</span>
+  <span class='int'>+20</span><span class='comma'>,</span>
+  <span class='int'>+2</span><span class='comma'>,</span>
+  <span class='int'>+5</span><span class='comma'>,</span>
+  <span class='int'>+7</span><span class='comma'>,</span>
+  <span class='int'>+6</span><span class='comma'>,</span>
+  <span class='int'>+13</span><span class='comma'>,</span>
+  <span class='int'>+4</span><span class='comma'>,</span>
+  <span class='int'>+12</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>9</span><span class='comma'>,</span>
+  <span class='int'>+17</span><span class='comma'>,</span>
+  <span class='int'>+10</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>5</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>9</span><span class='comma'>,</span>
+  <span class='int'>+18</span><span class='comma'>,</span>
+  <span class='int'>+4</span><span class='comma'>,</span>
+  <span class='int'>+5</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>16</span><span class='comma'>,</span>
+  <span class='int'>+1</span><span class='comma'>,</span>
+  <span class='int'>+16</span><span class='comma'>,</span>
+  <span class='int'>+1</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>5</span><span class='comma'>,</span>
+  <span class='int'>+19</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>5</span><span class='comma'>,</span>
+  <span class='int'>+14</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>15</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>3</span><span class='comma'>,</span>
+  <span class='int'>+7</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>15</span><span class='comma'>,</span>
+  <span class='int'>+14</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>7</span><span class='comma'>,</span>
+  <span class='int'>+16</span><span class='comma'>,</span>
+  <span class='int'>+13</span><span class='comma'>,</span>
+  <span class='int'>+1</span><span class='comma'>,</span>
+  <span class='int'>+17</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>4</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>9</span><span class='comma'>,</span>
+  <span class='int'>+12</span><span class='comma'>,</span>
+  <span class='int'>+15</span><span class='comma'>,</span>
+  <span class='int'>+10</span><span class='comma'>,</span>
+  <span class='int'>+5</span><span class='comma'>,</span>
+  <span class='int'>+8</span><span class='comma'>,</span>
+  <span class='int'>+31</span><span class='comma'>,</span>
+  <span class='int'>+22</span><span class='comma'>,</span>
+  <span class='int'>+12</span><span class='comma'>,</span>
+  <span class='int'>+16</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>17</span><span class='comma'>,</span>
+  <span class='int'>+9</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>21</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>13</span><span class='comma'>,</span>
+  <span class='int'>+22</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>1</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>2</span><span class='comma'>,</span>
+  <span class='int'>+17</span><span class='comma'>,</span>
+  <span class='int'>+14</span><span class='comma'>,</span>
+  <span class='int'>+34</span><span class='comma'>,</span>
+  <span class='int'>+18</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>15</span><span class='comma'>,</span>
+  <span class='int'>+10</span><span class='comma'>,</span>
+  <span class='int'>+14</span><span class='comma'>,</span>
+  <span class='int'>+11</span><span class='comma'>,</span>
+  <span class='int'>+4</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>9</span><span class='comma'>,</span>
+  <span class='int'>+13</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>12</span><span class='comma'>,</span>
+  <span class='int'>+7</span><span class='comma'>,</span>
+  <span class='int'>+3</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>15</span><span class='comma'>,</span>
+  <span class='int'>+6</span><span class='comma'>,</span>
+  <span class='int'>+5</span><span class='comma'>,</span>
+  <span class='int'>+21</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>18</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>20</span><span class='comma'>,</span>
+  <span class='int'>+7</span><span class='comma'>,</span>
+  <span class='int'>+18</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>11</span><span class='comma'>,</span>
+  <span class='int'>+8</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>9</span><span class='comma'>,</span>
+  <span class='int'>+11</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>19</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>2</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>2</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>20</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>13</span><span class='comma'>,</span>
+  <span class='int'>+16</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>14</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>1</span><span class='comma'>,</span>
+  <span class='int'>+4</span><span class='comma'>,</span>
+  <span class='int'>+20</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>10</span><span class='comma'>,</span>
+  <span class='int'>+6</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>18</span><span class='comma'>,</span>
+  <span class='int'>+15</span><span class='comma'>,</span>
+  <span class='int'>+41</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>1</span><span class='comma'>,</span>
+  <span class='int'>+25</span><span class='comma'>,</span>
+  <span class='int'>+21</span><span class='comma'>,</span>
+  <span class='int'>+15</span><span class='comma'>,</span>
+  <span class='int'>+1</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>14</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>1</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>11</span><span class='comma'>,</span>
+  <span class='int'>+17</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>9</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>5</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>1</span><span class='comma'>,</span>
+  <span class='int'>+21</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>2</span><span class='comma'>,</span>
+  <span class='int'>+9</span><span class='comma'>,</span>
+  <span class='int'>+3</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>13</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>16</span><span class='comma'>,</span>
+  <span class='int'>+1</span><span class='comma'>,</span>
+  <span class='int'>+13</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>4</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>18</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>8</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>20</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>1</span><span class='comma'>,</span>
+  <span class='int'>+2</span><span class='comma'>,</span>
+  <span class='int'>+1</span><span class='comma'>,</span>
+  <span class='int'>+4</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>8</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>46</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>29</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>16</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>5</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>36</span><span class='comma'>,</span>
+  <span class='int'>+35</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>144</span><span class='comma'>,</span>
+  <span class='int'>+3</span><span class='comma'>,</span>
+  <span class='int'>+2</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>7</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>1</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>11</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>20</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>22</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>12</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>18</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>2</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>18</span><span class='comma'>,</span>
+  <span class='int'>+8</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>18</span><span class='comma'>,</span>
+  <span class='int'>+3</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>1</span><span class='comma'>,</span>
+  <span class='int'>+7</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>18</span><span class='comma'>,</span>
+  <span class='int'>+7</span><span class='comma'>,</span>
+  <span class='int'>+19</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>12</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>19</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>19</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>14</span><span class='comma'>,</span>
+  <span class='int'>+15</span><span class='comma'>,</span>
+  <span class='int'>+15</span><span class='comma'>,</span>
+  <span class='int'>+6</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>17</span><span class='comma'>,</span>
+  <span class='int'>+12</span><span class='comma'>,</span>
+  <span class='int'>+11</span><span class='comma'>,</span>
+  <span class='int'>+24</span><span class='comma'>,</span>
+  <span class='int'>+16</span><span class='comma'>,</span>
+  <span class='int'>+4</span><span class='comma'>,</span>
+  <span class='int'>+12</span><span class='comma'>,</span>
+  <span class='int'>+4</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>18</span><span class='comma'>,</span>
+  <span class='int'>+3</span><span class='comma'>,</span>
+  <span class='int'>+19</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>10</span><span class='comma'>,</span>
+  <span class='int'>+12</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>4</span><span class='comma'>,</span>
+  <span class='int'>+19</span><span class='comma'>,</span>
+  <span class='int'>+3</span><span class='comma'>,</span>
+  <span class='int'>+2</span><span class='comma'>,</span>
+  <span class='int'>+5</span><span class='comma'>,</span>
+  <span class='int'>+19</span><span class='comma'>,</span>
+  <span class='int'>+5</span><span class='comma'>,</span>
+  <span class='int'>+22</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>21</span><span class='comma'>,</span>
+  <span class='int'>+1</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>21</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>19</span><span class='comma'>,</span>
+  <span class='int'>+13</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>12</span><span class='comma'>,</span>
+  <span class='int'>+10</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>12</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>13</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>2</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>11</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>16</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>7</span><span class='comma'>,</span>
+  <span class='int'>+10</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>21</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>3</span><span class='comma'>,</span>
+  <span class='int'>+4</span><span class='comma'>,</span>
+  <span class='int'>+22</span><span class='comma'>,</span>
+  <span class='int'>+18</span><span class='comma'>,</span>
+  <span class='int'>+11</span><span class='comma'>,</span>
+  <span class='int'>+1</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>10</span><span class='comma'>,</span>
+  <span class='int'>+15</span><span class='comma'>,</span>
+  <span class='int'>+5</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>9</span><span class='comma'>,</span>
+  <span class='int'>+2</span><span class='comma'>,</span>
+  <span class='int'>+1</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>24</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>1</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>2</span><span class='comma'>,</span>
+  <span class='int'>+6</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>26</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>15</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>16</span><span class='comma'>,</span>
+  <span class='int'>+9</span><span class='comma'>,</span>
+  <span class='int'>+25</span><span class='comma'>,</span>
+  <span class='int'>+14</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>7</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>27</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>24</span><span class='comma'>,</span>
+  <span class='int'>+16</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>30</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>30</span><span class='comma'>,</span>
+  <span class='int'>+26</span><span class='comma'>,</span>
+  <span class='int'>+12</span><span class='comma'>,</span>
+  <span class='int'>+3</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>32</span><span class='comma'>,</span>
+  <span class='int'>+3</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>10</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>4</span><span class='comma'>,</span>
+  <span class='int'>+8</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>19</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>7</span><span class='comma'>,</span>
+  <span class='int'>+15</span><span class='comma'>,</span>
+  <span class='int'>+13</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>3</span><span class='comma'>,</span>
+  <span class='int'>+16</span><span class='comma'>,</span>
+  <span class='int'>+7</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>21</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>23</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>12</span><span class='comma'>,</span>
+  <span class='int'>+14</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>149</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>77</span><span class='comma'>,</span>
+  <span class='int'>+19</span><span class='comma'>,</span>
+  <span class='int'>+6</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>80</span><span class='comma'>,</span>
+  <span class='int'>+11</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>16</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>19</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>65</span><span class='comma'>,</span>
+  <span class='int'>+6</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>67327</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>14</span><span class='comma'>,</span>
+  <span class='int'>+16</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>15</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>10</span><span class='comma'>,</span>
+  <span class='int'>+4</span><span class='comma'>,</span>
+  <span class='int'>+16</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>12</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>3</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>10</span><span class='comma'>,</span>
+  <span class='int'>+7</span><span class='comma'>,</span>
+  <span class='int'>+14</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>2</span><span class='comma'>,</span>
+  <span class='int'>+17</span><span class='comma'>,</span>
+  <span class='int'>+8</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>7</span><span class='comma'>,</span>
+  <span class='int'>+15</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>17</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>13</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>11</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>18</span><span class='comma'>,</span>
+  <span class='int'>+19</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>22</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>11</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>1</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>16</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>2</span><span class='comma'>,</span>
+  <span class='int'>+10</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>12</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>6</span><span class='comma'>,</span>
+  <span class='int'>+11</span><span class='comma'>,</span>
+  <span class='int'>+9</span><span class='comma'>,</span>
+  <span class='int'>+1</span><span class='comma'>,</span>
+  <span class='int'>+13</span><span class='comma'>,</span>
+  <span class='int'>+9</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>6</span><span class='comma'>,</span>
+  <span class='int'>+19</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>10</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>4</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>12</span><span class='comma'>,</span>
+  <span class='int'>+14</span><span class='comma'>,</span>
+  <span class='int'>+1</span><span class='comma'>,</span>
+  <span class='int'>+19</span><span class='comma'>,</span>
+  <span class='int'>+15</span><span class='comma'>,</span>
+  <span class='int'>+8</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>16</span><span class='comma'>,</span>
+  <span class='int'>+1</span><span class='comma'>,</span>
+  <span class='int'>+8</span><span class='comma'>,</span>
+  <span class='int'>+18</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>12</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>5</span><span class='comma'>,</span>
+  <span class='int'>+10</span><span class='comma'>,</span>
+  <span class='int'>+15</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>9</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>15</span><span class='comma'>,</span>
+  <span class='int'>+12</span><span class='comma'>,</span>
+  <span class='int'>+8</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>9</span><span class='comma'>,</span>
+  <span class='int'>+3</span><span class='comma'>,</span>
+  <span class='int'>+16</span><span class='comma'>,</span>
+  <span class='int'>+5</span><span class='comma'>,</span>
+  <span class='int'>+14</span><span class='comma'>,</span>
+  <span class='int'>+18</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>1</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>5</span><span class='comma'>,</span>
+  <span class='int'>+4</span><span class='comma'>,</span>
+  <span class='int'>+17</span><span class='comma'>,</span>
+  <span class='int'>+12</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>9</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>12</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>15</span><span class='comma'>,</span>
+  <span class='int'>+11</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>19</span><span class='comma'>,</span>
+  <span class='int'>+1</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>13</span><span class='comma'>,</span>
+  <span class='int'>+17</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>11</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>11</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>14</span><span class='comma'>,</span>
+  <span class='int'>+8</span><span class='comma'>,</span>
+  <span class='int'>+10</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>15</span><span class='comma'>,</span>
+  <span class='int'>+18</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>12</span><span class='comma'>,</span>
+  <span class='int'>+4</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>1</span><span class='comma'>,</span>
+  <span class='int'>+10</span><span class='comma'>,</span>
+  <span class='int'>+16</span><span class='comma'>,</span>
+  <span class='int'>+11</span><span class='comma'>,</span>
+  <span class='int'>+3</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>11</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>14</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>4</span><span class='comma'>,</span>
+  <span class='int'>+17</span><span class='comma'>,</span>
+  <span class='int'>+13</span><span class='comma'>,</span>
+  <span class='int'>+4</span><span class='comma'>,</span>
+  <span class='int'>+12</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>18</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>16</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>20</span><span class='comma'>,</span>
+  <span class='int'>+14</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>22</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>20</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>20</span><span class='comma'>,</span>
+  <span class='int'>+6</span><span class='comma'>,</span>
+  <span class='int'>+16</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>15</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>35</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>7</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>17</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>20</span><span class='comma'>,</span>
+  <span class='int'>+19</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>17</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>11</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>9</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>16</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>3</span><span class='comma'>,</span>
+  <span class='int'>+7</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>10</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>2</span><span class='comma'>,</span>
+  <span class='int'>+7</span><span class='comma'>,</span>
+  <span class='int'>+2</span><span class='comma'>,</span>
+  <span class='int'>+2</span><span class='comma'>,</span>
+  <span class='int'>+16</span><span class='comma'>,</span>
+  <span class='int'>+14</span><span class='comma'>,</span>
+  <span class='int'>+17</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>8</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>18</span><span class='comma'>,</span>
+  <span class='int'>+2</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>6</span><span class='comma'>,</span>
+  <span class='int'>+3</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>10</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>8</span><span class='comma'>,</span>
+  <span class='int'>+7</span><span class='comma'>,</span>
+  <span class='int'>+5</span><span class='comma'>,</span>
+  <span class='int'>+18</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>20</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>13</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>17</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>17</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>7</span><span class='comma'>,</span>
+  <span class='int'>+9</span><span class='comma'>,</span>
+  <span class='int'>+13</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>17</span><span class='comma'>,</span>
+  <span class='int'>+16</span><span class='comma'>,</span>
+  <span class='int'>+4</span><span class='comma'>,</span>
+  <span class='int'>+12</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>3</span><span class='comma'>,</span>
+  <span class='int'>+1</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>12</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>7</span><span class='comma'>,</span>
+  <span class='int'>+16</span><span class='comma'>,</span>
+  <span class='int'>+13</span><span class='comma'>,</span>
+  <span class='int'>+1</span><span class='comma'>,</span>
+  <span class='int'>+14</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>3</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>4</span><span class='comma'>,</span>
+  <span class='int'>+16</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>21</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>20</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>17</span><span class='comma'>,</span>
+  <span class='int'>+1</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>14</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>10</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>5</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>14</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>1</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>5</span><span class='comma'>,</span>
+  <span class='int'>+19</span><span class='comma'>,</span>
+  <span class='int'>+3</span><span class='comma'>,</span>
+  <span class='int'>+16</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>9</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>13</span><span class='comma'>,</span>
+  <span class='int'>+2</span><span class='comma'>,</span>
+  <span class='int'>+3</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>7</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>15</span><span class='comma'>,</span>
+  <span class='int'>+4</span><span class='comma'>,</span>
+  <span class='int'>+6</span><span class='comma'>,</span>
+  <span class='int'>+8</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>10</span><span class='comma'>,</span>
+  <span class='int'>+5</span><span class='comma'>,</span>
+  <span class='int'>+12</span><span class='comma'>,</span>
+  <span class='int'>+8</span><span class='comma'>,</span>
+  <span class='int'>+18</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>7</span><span class='comma'>,</span>
+  <span class='int'>+8</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>15</span><span class='comma'>,</span>
+  <span class='int'>+5</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>11</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>15</span><span class='comma'>,</span>
+  <span class='int'>+16</span><span class='comma'>,</span>
+  <span class='int'>+16</span><span class='comma'>,</span>
+  <span class='int'>+7</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>2</span><span class='comma'>,</span>
+  <span class='int'>+14</span><span class='comma'>,</span>
+  <span class='int'>+18</span><span class='comma'>,</span>
+  <span class='int'>+24</span><span class='comma'>,</span>
+  <span class='int'>+9</span><span class='comma'>,</span>
+  <span class='int'>+19</span><span class='comma'>,</span>
+  <span class='int'>+17</span><span class='comma'>,</span>
+  <span class='int'>+13</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>16</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>13</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>14</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>20</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>5</span><span class='comma'>,</span>
+  <span class='int'>+18</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>3</span><span class='comma'>,</span>
+  <span class='int'>+20</span><span class='comma'>,</span>
+  <span class='int'>+13</span><span class='comma'>,</span>
+  <span class='int'>+15</span><span class='comma'>,</span>
+  <span class='int'>+7</span><span class='comma'>,</span>
+  <span class='int'>+11</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>15</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>22</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>15</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>6</span><span class='comma'>,</span>
+  <span class='int'>+18</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>8</span><span class='comma'>,</span>
+  <span class='int'>+18</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>6</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>24</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>12</span><span class='comma'>,</span>
+  <span class='int'>+21</span><span class='comma'>,</span>
+  <span class='int'>+17</span><span class='comma'>,</span>
+  <span class='int'>+18</span><span class='comma'>,</span>
+  <span class='int'>+40</span><span class='comma'>,</span>
+  <span class='int'>+22</span><span class='comma'>,</span>
+  <span class='int'>+27</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>4</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>16</span><span class='comma'>,</span>
+  <span class='int'>+17</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>10</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>18</span><span class='comma'>,</span>
+  <span class='int'>+49</span><span class='comma'>,</span>
+  <span class='int'>+15</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>12</span><span class='comma'>,</span>
+  <span class='int'>+7</span><span class='comma'>,</span>
+  <span class='int'>+13</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>16</span><span class='comma'>,</span>
+  <span class='int'>+10</span><span class='comma'>,</span>
+  <span class='int'>+15</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>1</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>3</span><span class='comma'>,</span>
+  <span class='int'>+16</span><span class='comma'>,</span>
+  <span class='int'>+6</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>7</span><span class='comma'>,</span>
+  <span class='int'>+4</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>18</span><span class='comma'>,</span>
+  <span class='int'>+13</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>4</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>16</span><span class='comma'>,</span>
+  <span class='int'>+18</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>5</span><span class='comma'>,</span>
+  <span class='int'>+1</span><span class='comma'>,</span>
+  <span class='int'>+9</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>4</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>2</span><span class='comma'>,</span>
+  <span class='int'>+19</span><span class='comma'>,</span>
+  <span class='int'>+17</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>4</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>14</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>24</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>21</span><span class='comma'>,</span>
+  <span class='int'>+1</span><span class='comma'>,</span>
+  <span class='int'>+6</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>18</span><span class='comma'>,</span>
+  <span class='int'>+8</span><span class='comma'>,</span>
+  <span class='int'>+15</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>18</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>2</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>31</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>30</span><span class='comma'>,</span>
+  <span class='int'>+4</span><span class='comma'>,</span>
+  <span class='int'>+2</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>28</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>53</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>33</span><span class='comma'>,</span>
+  <span class='int'>+10</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>11</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>18</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>19</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>4</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>6</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>24</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>6</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>4</span><span class='comma'>,</span>
+  <span class='int'>+11</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>24</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>16</span><span class='comma'>,</span>
+  <span class='int'>+3</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>1</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>1</span><span class='comma'>,</span>
+  <span class='int'>+13</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>15</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>10</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>7</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>3</span><span class='comma'>,</span>
+  <span class='int'>+8</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>11</span><span class='comma'>,</span>
+  <span class='int'>+2</span><span class='comma'>,</span>
+  <span class='int'>+5</span><span class='comma'>,</span>
+  <span class='int'>+8</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>3</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>7</span><span class='comma'>,</span>
+  <span class='int'>+15</span><span class='comma'>,</span>
+  <span class='int'>+1</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>11</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>11</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>2</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>4</span><span class='comma'>,</span>
+  <span class='int'>+16</span><span class='comma'>,</span>
+  <span class='int'>+5</span><span class='comma'>,</span>
+  <span class='int'>+14</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>24</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>14</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>22</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>11</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>15</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>6</span><span class='comma'>,</span>
+  <span class='int'>+8</span><span class='comma'>,</span>
+  <span class='int'>+15</span><span class='comma'>,</span>
+  <span class='int'>+19</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>14</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>12</span><span class='comma'>,</span>
+  <span class='int'>+1</span><span class='comma'>,</span>
+  <span class='int'>+9</span><span class='comma'>,</span>
+  <span class='int'>+5</span><span class='comma'>,</span>
+  <span class='int'>+18</span><span class='comma'>,</span>
+  <span class='int'>+6</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>18</span><span class='comma'>,</span>
+  <span class='int'>+16</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>8</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>10</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>8</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>9</span><span class='comma'>,</span>
+  <span class='int'>+1</span><span class='comma'>,</span>
+  <span class='int'>+11</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>16</span><span class='comma'>,</span>
+  <span class='int'>+8</span><span class='comma'>,</span>
+  <span class='int'>+18</span><span class='comma'>,</span>
+  <span class='int'>+12</span><span class='comma'>,</span>
+  <span class='int'>+8</span><span class='comma'>,</span>
+  <span class='int'>+2</span><span class='comma'>,</span>
+  <span class='int'>+10</span><span class='comma'>,</span>
+  <span class='int'>+11</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>2</span><span class='comma'>,</span>
+  <span class='int'>+14</span><span class='comma'>,</span>
+  <span class='int'>+1</span><span class='comma'>,</span>
+  <span class='int'>+11</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>9</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>18</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>24</span><span class='comma'>,</span>
+  <span class='int'>+2</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>8</span><span class='comma'>,</span>
+  <span class='int'>+15</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>14</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>18</span><span class='comma'>,</span>
+  <span class='int'>+11</span><span class='comma'>,</span>
+  <span class='int'>+2</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>10</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>11</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>5</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>13</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>3</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>12</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>5</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>13</span><span class='comma'>,</span>
+  <span class='int'>+16</span><span class='comma'>,</span>
+  <span class='int'>+5</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>19</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>16</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>12</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>4</span><span class='comma'>,</span>
+  <span class='int'>+10</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>15</span><span class='comma'>,</span>
+  <span class='int'>+14</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>6</span><span class='comma'>,</span>
+  <span class='int'>+3</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>18</span><span class='comma'>,</span>
+  <span class='int'>+17</span><span class='comma'>,</span>
+  <span class='int'>+12</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>2</span><span class='comma'>,</span>
+  <span class='int'>+6</span><span class='comma'>,</span>
+  <span class='int'>+13</span><span class='comma'>,</span>
+  <span class='int'>+16</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>11</span><span class='comma'>,</span>
+  <span class='int'>+3</span><span class='comma'>,</span>
+  <span class='int'>+3</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>20</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>6</span><span class='comma'>,</span>
+  <span class='int'>+8</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>9</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>19</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>3</span><span class='comma'>,</span>
+  <span class='int'>+16</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>14</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>14</span><span class='comma'>,</span>
+  <span class='int'>+1</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>12</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>10</span><span class='comma'>,</span>
+  <span class='int'>+19</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>12</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>18</span><span class='comma'>,</span>
+  <span class='int'>+5</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>3</span><span class='comma'>,</span>
+  <span class='int'>+7</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>20</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>16</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>18</span><span class='comma'>,</span>
+  <span class='int'>+17</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>23</span><span class='comma'>,</span>
+  <span class='int'>+25</span><span class='comma'>,</span>
+  <span class='int'>+65</span><span class='comma'>,</span>
+  <span class='int'>+11</span><span class='comma'>,</span>
+  <span class='int'>+11</span><span class='comma'>,</span>
+  <span class='int'>+16</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>1</span><span class='comma'>,</span>
+  <span class='int'>+16</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>9</span><span class='comma'>,</span>
+  <span class='int'>+19</span><span class='comma'>,</span>
+  <span class='int'>+13</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>8</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>10</span><span class='comma'>,</span>
+  <span class='int'>+9</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>18</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>16</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>16</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>19</span><span class='comma'>,</span>
+  <span class='int'>+1</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>28</span><span class='comma'>,</span>
+  <span class='int'>+4</span><span class='comma'>,</span>
+  <span class='int'>+35</span><span class='comma'>,</span>
+  <span class='int'>+13</span><span class='comma'>,</span>
+  <span class='int'>+12</span><span class='comma'>,</span>
+  <span class='int'>+15</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>5</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>3</span><span class='comma'>,</span>
+  <span class='int'>+4</span><span class='comma'>,</span>
+  <span class='int'>+16</span><span class='comma'>,</span>
+  <span class='int'>+2</span><span class='comma'>,</span>
+  <span class='int'>+10</span><span class='comma'>,</span>
+  <span class='int'>+15</span><span class='comma'>,</span>
+  <span class='int'>+17</span><span class='comma'>,</span>
+  <span class='int'>+18</span><span class='comma'>,</span>
+  <span class='int'>+27</span><span class='comma'>,</span>
+  <span class='int'>+19</span><span class='comma'>,</span>
+  <span class='int'>+15</span><span class='comma'>,</span>
+  <span class='int'>+13</span><span class='comma'>,</span>
+  <span class='int'>+6</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>17</span><span class='comma'>,</span>
+  <span class='int'>+12</span><span class='comma'>,</span>
+  <span class='int'>+15</span><span class='comma'>,</span>
+  <span class='int'>+9</span><span class='comma'>,</span>
+  <span class='int'>+23</span><span class='comma'>,</span>
+  <span class='int'>+78</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>221</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>28</span><span class='comma'>,</span>
+  <span class='int'>+19</span><span class='comma'>,</span>
+  <span class='int'>+18</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>13</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>22</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>11</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>5</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>5</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>9</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>16</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>2</span><span class='comma'>,</span>
+  <span class='int'>+11</span><span class='comma'>,</span>
+  <span class='int'>+30</span><span class='comma'>,</span>
+  <span class='int'>+10</span><span class='comma'>,</span>
+  <span class='int'>+28</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>4</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>72</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>36</span><span class='comma'>,</span>
+  <span class='int'>+10</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>5</span><span class='comma'>,</span>
+  <span class='int'>+77</span><span class='comma'>,</span>
+  <span class='int'>+35</span><span class='comma'>,</span>
+  <span class='int'>+102</span><span class='comma'>,</span>
+  <span class='int'>+153</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>29</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>676</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>67225</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>5</span><span class='comma'>,</span>
+  <span class='int'>+13</span><span class='comma'>,</span>
+  <span class='int'>+19</span><span class='comma'>,</span>
+  <span class='int'>+3</span><span class='comma'>,</span>
+  <span class='int'>+15</span><span class='comma'>,</span>
+  <span class='int'>+7</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>11</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>1</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>7</span><span class='comma'>,</span>
+  <span class='int'>+13</span><span class='comma'>,</span>
+  <span class='int'>+17</span><span class='comma'>,</span>
+  <span class='int'>+17</span><span class='comma'>,</span>
+  <span class='int'>+6</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>15</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>9</span><span class='comma'>,</span>
+  <span class='int'>+11</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>8</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>7</span><span class='comma'>,</span>
+  <span class='int'>+10</span><span class='comma'>,</span>
+  <span class='int'>+1</span><span class='comma'>,</span>
+  <span class='int'>+13</span><span class='comma'>,</span>
+  <span class='int'>+19</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>11</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>11</span><span class='comma'>,</span>
+  <span class='int'>+2</span><span class='comma'>,</span>
+  <span class='int'>+4</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>11</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>7</span><span class='comma'>,</span>
+  <span class='int'>+10</span><span class='comma'>,</span>
+  <span class='int'>+19</span><span class='comma'>,</span>
+  <span class='int'>+17</span><span class='comma'>,</span>
+  <span class='int'>+7</span><span class='comma'>,</span>
+  <span class='int'>+12</span><span class='comma'>,</span>
+  <span class='int'>+20</span><span class='comma'>,</span>
+  <span class='op'>-</span><span class='int'>2</span><span class='comma'>,</span>
+  <span class='int'>+135638</span>
+<span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_freeze'>freeze</span></pre></dd>
+      
+    </dl>
+  
+
+
+
+
+
+
+
+
+
+</div>
+
+      <div id="footer">
+  Generated on Sat Dec  8 22:02:22 2018 by
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.9.16 (ruby-2.5.3).
+</div>
+
+    </div>
+  </body>
+</html>
