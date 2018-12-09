@@ -5,11 +5,11 @@ require_relative '../inputs/december_XX_input.rb'
 module AdventOfCode
   module Days
     class DecemberXX < Day
-      include AdventOfCode::Inputs::December04Input
+      include AdventOfCode::Inputs::DecemberXXInput
 
       # Solves the December YY Silver Puzzle
       #
-      # @return [Integer<>] ??
+      # @return [?<>] ??
       def self.tbd_silver!
       end
 
@@ -23,7 +23,7 @@ module AdventOfCode
 
       # Solves the December YY Gold Puzzle
       #
-      # @return [String<>] ??
+      # @return [?<>] ??
       def self.tbd_gold!
       end
 

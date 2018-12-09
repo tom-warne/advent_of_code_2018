@@ -7,6 +7,8 @@ module AdventOfCode
     class December03 < Day
       include AdventOfCode::Inputs::December03Input
 
+      DATE = Date.parse(class_name)
+
       # Solves the December 3rd Silver Puzzle
       #
       # @return [Integer<114946>] the number of overlapping square inches of fabric

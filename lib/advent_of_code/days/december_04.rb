@@ -7,18 +7,21 @@ module AdventOfCode
     class December04 < Day
       include AdventOfCode::Inputs::December04Input
 
-      # Marker for storing which guard we are working with.
-      @@active_guard = nil
+      DATE = Date.parse(class_name)
 
       # One minute expressed as a fraction of a day.
       MINUTE_STEP = 1.to_f / (24 * 60)
 
+      # Marker for storing which guard we are working with.
+      @@active_guard = nil
+
       # Solves the December 4th Silver Puzzle
       #
+      # @param  [Symbol] sort_method method for sorting the initial parsed input
       # @return [Integer<11367>] id of sleepiest guard * minute most often asleep
-      def self.determine_sleepiest_guard!
+      def self.determine_sleepiest_guard!(sort_method: :sum)
         parse_input!
-          .sort_by { |_, sleep_times| sleep_times.values.sum }
+          .sort_by { |_, sleep_times| sleep_times.values.public_send(sort_method) }
           .last
           .each_cons(2)
           .map { |(guard, sleep_count)| guard * sleep_count.invert.sort.last.last }
@@ -35,14 +38,9 @@ module AdventOfCode
 
       # Solves the December 4th Gold Puzzle
       #
-      # @return [Int<>] id of most consistant sleeping guard * most likely time of sleep
+      # @return [Int<36896>] id of most consistant sleeping guard * most likely time of sleep
       def self.find_most_common_time_to_sleep!
-        parse_input!
-          .sort_by { |_, sleep_times| sleep_times.values.max }
-          .last
-          .each_cons(2)
-          .map { |guard, sleep_count| guard * sleep_count.invert.sort.last.last }
-          .first
+        determine_sleepiest_guard!(sort_method: :max)
       end
 
       GOLD_PUZZLE = {
