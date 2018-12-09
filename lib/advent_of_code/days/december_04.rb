@@ -15,60 +15,70 @@ module AdventOfCode
 
       # Solves the December 4th Silver Puzzle
       #
-      # @return [Integer<11367>] id of guard * minute most often asleep
+      # @return [Integer<11367>] id of sleepiest guard * minute most often asleep
       def self.determine_sleepiest_guard!
         parse_input!
           .sort_by { |_, sleep_times| sleep_times.values.sum }
           .last
-          .tap { |(guard, sleep_count)|
-            return guard * sleep_count.invert.sort.last.last
-          }
+          .each_cons(2)
+          .map { |(guard, sleep_count)| guard * sleep_count.invert.sort.last.last }
+          .first
       end
 
       SILVER_PUZZLE = {
         answer:     :determine_sleepiest_guard!,
         class_name: :December04,
         date:       DATE,
-        message:    'The guard id * the minute most often asleep:',
+        message:    'The sleepiest guard id * the minute most often asleep:',
         type:       :SILVER
       }
 
       # Solves the December 4th Gold Puzzle
       #
-      # @return [String<>] ??
-      def self.tbd_gold!
+      # @return [Int<>] id of most consistant sleeping guard * most likely time of sleep
+      def self.find_most_common_time_to_sleep!
+        parse_input!
+          .sort_by { |_, sleep_times| sleep_times.values.max }
+          .last
+          .each_cons(2)
+          .map { |guard, sleep_count| guard * sleep_count.invert.sort.last.last }
+          .first
       end
 
       GOLD_PUZZLE = {
-        answer:     :tbd_gold!,
+        answer:     :find_most_common_time_to_sleep!,
         class_name: :December04,
         date:       DATE,
-        message:    ':',
+        message:    'The guard id * the minute most slept on:',
         type:       :GOLD
       }
 
       private
 
       # Formats the input data into a count of how many times a guard is asleep at any given time
+      # Memoized in `@@parsed_input` to avoid repeating a costly operation.
       # @todo Look into using a struct here -TW
       #
       # @private
-      # @return [Hash<String, Hash<String, Int>>] {guard_id => {HHMM => count(sleep)}}
+      # @return [Hash<String, Hash<String, Int>>] {guard_id => {%H%M => count(sleep)}}
       def self.parse_input!
-        Hash
-          .new { |h, k| h[k] = Hash.new(0) }
-          .tap do |sleep_schedules|
-            sorted_input.each.with_index(1) do |(date, action), index|
-              case action
-              when /Guard/
-                @@active_guard = action.scan(/\d+/).first.to_i
-              when /falls asleep/
-                date.step(sorted_input[index].first - MINUTE_STEP, MINUTE_STEP) do |minute|
-                  sleep_schedules[@@active_guard][minute.strftime('%H%M').to_i] += 1
+        return @@parsed_input if defined? @@parsed_input
+
+        @@parsed_input =
+          Hash
+            .new { |h, k| h[k] = Hash.new(0) }
+            .tap do |sleep_schedules|
+              sorted_input.each.with_index(1) do |(date, action), index|
+                case action
+                when /Guard/
+                  @@active_guard = action.scan(/\d+/).first.to_i
+                when /falls asleep/
+                  date.step(sorted_input[index].first - MINUTE_STEP, MINUTE_STEP) do |minute|
+                    sleep_schedules[@@active_guard][minute.strftime('%H%M').to_i] += 1
+                  end
                 end
               end
             end
-          end
       end
 
       # Formats the input data into a usable form sorted chronologically
