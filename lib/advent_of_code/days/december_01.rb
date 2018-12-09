@@ -7,6 +7,8 @@ module AdventOfCode
     class December01 < Day
       include AdventOfCode::Inputs::December01Input
 
+      DATE = Date.parse(class_name)
+
       # Solves the December 1st Silver Puzzle
       #
       # @return [Integer<484>] the sum of all given frequency changes

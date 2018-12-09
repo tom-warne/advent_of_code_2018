@@ -7,11 +7,13 @@ module AdventOfCode
     class December04 < Day
       include AdventOfCode::Inputs::December04Input
 
-      # Marker for storing which guard we are working with.
-      @@active_guard = nil
+      DATE = Date.parse(class_name)
 
       # One minute expressed as a fraction of a day.
       MINUTE_STEP = 1.to_f / (24 * 60)
+
+      # Marker for storing which guard we are working with.
+      @@active_guard = nil
 
       # Solves the December 4th Silver Puzzle
       #

@@ -9,7 +9,7 @@ module AdventOfCode
   require_relative 'advent_of_code/days'
 
   START_DATE = Date.parse('2018-12-01').freeze
-  END_DATE   = Date.parse('2018-12-04').freeze
+  END_DATE   = Date.parse('2018-12-05').freeze
   DATE_RANGE = (START_DATE..END_DATE).freeze
 
   PUZZLE_TYPES = %i[SILVER GOLD]

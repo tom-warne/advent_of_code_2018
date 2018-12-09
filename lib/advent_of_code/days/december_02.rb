@@ -7,6 +7,8 @@ module AdventOfCode
     class December02 < Day
       include AdventOfCode::Inputs::December02Input
 
+      DATE = Date.parse(class_name)
+
       # Solves the December 2nd Silver Puzzle
       #
       # @return [Integer<6888>] the checksum of all given ids

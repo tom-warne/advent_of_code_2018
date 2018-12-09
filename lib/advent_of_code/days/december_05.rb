@@ -7,6 +7,8 @@ module AdventOfCode
     class December05 < Day
       include AdventOfCode::Inputs::December05Input
 
+      DATE = Date.parse(class_name)
+
       # Pairs of units that will destroy each other in the reaction (eg: aA Aa)
       DESTRUCTION_PAIRS = /([[:upper:][:lower:]])(?!\1)(?i)\1/.freeze
 
@@ -31,15 +33,18 @@ module AdventOfCode
 
       # Solves the December 5th Gold Puzzle
       #
-      # @return [?<>] ??
-      def self.tbd_gold!
+      # @return [Integer<4840>] the shortest chain after removing one of the building types
+      def self.minimum_after_removing_problem_type!
+        (?a..?z)
+          .map { |c| count_units_left!(chain: POLYMER_CHAIN.gsub(%r/#{c}|#{c.upcase}/, '')) }
+          .min
       end
 
       GOLD_PUZZLE = {
-        answer:     :tbd_gold!,
+        answer:     :minimum_after_removing_problem_type!,
         class_name: :December05,
         date:       DATE,
-        message:    ':',
+        message:    'Number of units after removing problem type:',
         type:       :GOLD
       }
 
