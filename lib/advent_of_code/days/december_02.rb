@@ -32,13 +32,10 @@ module AdventOfCode
       #
       # @return [String<icxjvbrobtunlelzpdmfkahgs>] the string of characters shared by the two ids
       def self.find_similar_id_pair!
-        # BOX_IDS.group_by(&:sum).tap do |hash|
         BOX_IDS.dup.tap do |ids|
           until ids.empty?
             id = ids.pop
-            # hash.slice(*(checksum..(checksum + MAX_CHECKSUM_SEPARATION))).each do |(match_checksum, match_ids)|
             ids.each do |match_id|
-            # match_ids.each do |match_id|
               match_chars = match_id.chars
               match       = id.chars.map.with_index { |c, i| c if match_chars[i] == c }.join
 

@@ -368,23 +368,17 @@
 43
 44
 45
-46
-47
-48
-49</pre>
+46</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'lib/advent_of_code/days/december_02.rb', line 34</span>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_find_similar_id_pair!'>find_similar_id_pair!</span>
-  <span class='comment'># BOX_IDS.group_by(&amp;:sum).tap do |hash|
-</span>  <span class='const'><span class='object_link'><a href="../Inputs/December02Input.html#BOX_IDS-constant" title="AdventOfCode::Inputs::December02Input::BOX_IDS (constant)">BOX_IDS</a></span></span><span class='period'>.</span><span class='id identifier rubyid_dup'>dup</span><span class='period'>.</span><span class='id identifier rubyid_tap'>tap</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_ids'>ids</span><span class='op'>|</span>
+  <span class='const'><span class='object_link'><a href="../Inputs/December02Input.html#BOX_IDS-constant" title="AdventOfCode::Inputs::December02Input::BOX_IDS (constant)">BOX_IDS</a></span></span><span class='period'>.</span><span class='id identifier rubyid_dup'>dup</span><span class='period'>.</span><span class='id identifier rubyid_tap'>tap</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_ids'>ids</span><span class='op'>|</span>
     <span class='kw'>until</span> <span class='id identifier rubyid_ids'>ids</span><span class='period'>.</span><span class='id identifier rubyid_empty?'>empty?</span>
       <span class='id identifier rubyid_id'>id</span> <span class='op'>=</span> <span class='id identifier rubyid_ids'>ids</span><span class='period'>.</span><span class='id identifier rubyid_pop'>pop</span>
-      <span class='comment'># hash.slice(*(checksum..(checksum + MAX_CHECKSUM_SEPARATION))).each do |(match_checksum, match_ids)|
-</span>      <span class='id identifier rubyid_ids'>ids</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_match_id'>match_id</span><span class='op'>|</span>
-      <span class='comment'># match_ids.each do |match_id|
-</span>        <span class='id identifier rubyid_match_chars'>match_chars</span> <span class='op'>=</span> <span class='id identifier rubyid_match_id'>match_id</span><span class='period'>.</span><span class='id identifier rubyid_chars'>chars</span>
+      <span class='id identifier rubyid_ids'>ids</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_match_id'>match_id</span><span class='op'>|</span>
+        <span class='id identifier rubyid_match_chars'>match_chars</span> <span class='op'>=</span> <span class='id identifier rubyid_match_id'>match_id</span><span class='period'>.</span><span class='id identifier rubyid_chars'>chars</span>
         <span class='id identifier rubyid_match'>match</span>       <span class='op'>=</span> <span class='id identifier rubyid_id'>id</span><span class='period'>.</span><span class='id identifier rubyid_chars'>chars</span><span class='period'>.</span><span class='id identifier rubyid_map'>map</span><span class='period'>.</span><span class='id identifier rubyid_with_index'>with_index</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_c'>c</span><span class='comma'>,</span> <span class='id identifier rubyid_i'>i</span><span class='op'>|</span> <span class='id identifier rubyid_c'>c</span> <span class='kw'>if</span> <span class='id identifier rubyid_match_chars'>match_chars</span><span class='lbracket'>[</span><span class='id identifier rubyid_i'>i</span><span class='rbracket'>]</span> <span class='op'>==</span> <span class='id identifier rubyid_c'>c</span> <span class='rbrace'>}</span><span class='period'>.</span><span class='id identifier rubyid_join'>join</span>
 
         <span class='kw'>return</span> <span class='id identifier rubyid_match'>match</span> <span class='kw'>if</span> <span class='id identifier rubyid_match'>match</span><span class='period'>.</span><span class='id identifier rubyid_length'>length</span> <span class='op'>==</span> <span class='const'><span class='object_link'><a href="../Inputs/December02Input.html#ID_LENGTH-constant" title="AdventOfCode::Inputs::December02Input::ID_LENGTH (constant)">ID_LENGTH</a></span></span> <span class='op'>-</span> <span class='int'>1</span>
@@ -402,7 +396,7 @@
 </div>
 
       <div id="footer">
-  Generated on Sat Dec  8 22:02:22 2018 by
+  Generated on Sun Dec  9 04:11:24 2018 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.16 (ruby-2.5.3).
 </div>
