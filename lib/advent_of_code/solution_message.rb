@@ -2,7 +2,7 @@
 
 module AdventOfCode
 
-  # A SolutionMessage is responsible for receiving a {PuzzleResponse} from a
+  # The SolutionMessage is responsible for receiving a {PuzzleResponse} from a
   # completed puzzle and rendering the data into a string for display
   # in the terminal.
   class SolutionMessage

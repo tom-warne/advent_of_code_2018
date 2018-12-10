@@ -9,22 +9,24 @@ module AdventOfCode
   require_relative 'advent_of_code/days'
 
   # @!group Date Config
+  #
   START_DATE = Date.parse('2018-12-01').freeze
   END_DATE   = Date.parse('2018-12-05').freeze
   DATE_RANGE = (START_DATE..END_DATE).freeze
 
   # @!group Puzzle Config
-  PUZZLE       = "AdventOfCode::Days::%{date}::%{type}_PUZZLE"
+  #
+  PUZZLE       = "AdventOfCode::Days::December%{day}::%{type}_PUZZLE"
   PUZZLE_TYPES = %i[SILVER GOLD].freeze
   # @!endgroup
 
   # Runs the entire advent calendar and prints solutions to console.
   #
   # @return [void]
-  def self.solve!
-    DATE_RANGE.each do |date|
-      PUZZLE_TYPES.each do |type|
-        SolutionMessage.print(const_get(PUZZLE % {date: date.strftime('%B%d'), type: type}))
+  def self.solve!(days: DATE_RANGE.map { |date| date.strftime('%d') }, types: PUZZLE_TYPES)
+    days.each do |day|
+      types.each do |type|
+        SolutionMessage.print(const_get(PUZZLE % {day: '%02d' % day, type: type}))
       end
     end
 

@@ -1,6 +1,51 @@
 #!/usr/bin/env ruby
 # frozen_string_literal: true
 
+require          'optparse'
 require_relative '../lib/advent_of_code'
 
-AdventOfCode.solve!
+class AdventParser
+  def initialize
+    @options = {}
+  end
+
+  IntegerArray = /[[:digit:]]+/.freeze
+  TypeArray    = /(s)?(g)?/.freeze
+
+  def parse!
+    OptionParser.new do |parser|
+      parser.banner  = 'Usage: solve [options]'
+      parser.separator "Add `alias solve='./bin/solve_calendar'` to `~/.bash_profile` for full effect"
+      parser.separator 'Options:'
+
+      parser.accept(IntegerArray) { |s| s.split(',').map(&:to_i) }
+      parser.accept(TypeArray)    { |s| s.split(',') }
+
+      days_option(parser)
+      types_option(parser)
+    end.parse!
+
+    AdventOfCode.solve!(@options)
+  end
+
+  def days_option(parser)
+    parser.on('-d', '--days  DAYS', IntegerArray, 'Select which days to solve [01-25]') do |days|
+      unless days.all? { |day| (1..25).include? day }
+        raise InvalidArgument, "#{days} must be between 1 and 25"
+      end
+      @options[:days] = days
+    end
+  end
+
+  def types_option(parser)
+    parser.on('-t', '--types TYPES', Array, 'Select which types to solve [g,s]') do |types|
+      unless types.all? { |type| 'gs'.include? type }
+        raise InvalidArgument, "#{types} must be either `g` or `s`"
+      end
+      @options[:types] = types.map { |char| char == ?g ? :GOLD : :SILVER }
+    end
+  end
+
+end
+
+AdventParser.new.parse!

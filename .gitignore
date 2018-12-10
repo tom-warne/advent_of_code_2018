@@ -3,3 +3,4 @@
 
 # Ignore YARD Files
 .yardoc/*
+doc/*
