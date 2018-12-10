@@ -4,6 +4,8 @@
 require          'optparse'
 require_relative '../lib/advent_of_code'
 
+# @todo Add flags to quickly access the input for a given day -TW
+# @todo Store known answers for quick retrieval and add flag for access -TW
 class AdventParser
   def initialize
     @options = {}

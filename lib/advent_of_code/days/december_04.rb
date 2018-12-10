@@ -58,7 +58,7 @@ module AdventOfCode
       # @todo Look into using a struct here -TW
       #
       # @private
-      # @return [Hash<String, Hash<String, Int>>] +{guard_id =>  {%H%M => count(sleep_mins)}}+
+      # @return [{String => {String => Integer}}] +{guard_id =>  {%H%M => count(sleep_mins)}}+
       def self.parse_input!
         return @@parsed_input if defined? @@parsed_input
 
