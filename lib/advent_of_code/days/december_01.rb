@@ -26,9 +26,9 @@ module AdventOfCode
 
       # Solves the December 1st Gold Puzzle
       #
-      # @param  freqs [Hash<Integer, Nil>] the table of frequencies that `freq` is being appended to
+      # @param  freqs [Hash<Integer, Nil>] the table of frequencies that +freq+ is being appended to
       # @param  freq  [Integer] the frequency to start the table on
-      # @return [Integer<367>] the first frequency that is already contained in `freqs`
+      # @return [Integer<367>] the first frequency that is already contained in +freqs+
       def self.find_repeated_frequency!(freqs: {INITIAL_FREQUENCY => nil}, freq: INITIAL_FREQUENCY)
         FREQUENCY_CHANGES.each do |change|
           freq += change
