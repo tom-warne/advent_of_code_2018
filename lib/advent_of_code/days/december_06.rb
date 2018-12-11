@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 
-require          'matrix'
 require_relative '../inputs/december_06_input.rb'
 
 module AdventOfCode
@@ -8,16 +7,9 @@ module AdventOfCode
     class December06 < Day
       include AdventOfCode::Inputs::December06Input
 
-      DATE = Date.parse(class_name)
-
       # X_MAX = COORDINATES.map(&:first).max  - X_OFFSET
       # Y_MAX = COORDINATES.map(&:second).max - Y_OFFSET
 
-
-      # Transform coordinate system to begin on [0, 0]
-      X_OFFSET = 42
-      Y_OFFSET = 43
-      ABS_COOR = COORDINATES.map { |x, y| [x - X_OFFSET, y - Y_OFFSET] }
 
 
       # Length of "Circle/Diamond" side is 2 * RADIUS
@@ -36,7 +28,7 @@ module AdventOfCode
       SILVER_PUZZLE = {
         answer:     :find_largest_isolated_area!,
         class_name: :December06,
-        date:       DATE,
+        date:       formatted_date,
         message:    'Size of area surronding most isolated point:',
         type:       :SILVER
       }
@@ -50,12 +42,23 @@ module AdventOfCode
       GOLD_PUZZLE = {
         answer:     :tbd_gold!,
         class_name: :December06,
-        date:       DATE,
+        date:       formatted_date,
         message:    ':',
         type:       :GOLD
       }
 
       private
+
+      # @!group Private Constants
+      # Transform coordinate system to begin on [0, 0]
+      X_OFFSET = 42
+      Y_OFFSET = 43
+      ABS_COOR = COORDINATES.map { |x, y| [x - X_OFFSET, y - Y_OFFSET] }
+
+      private_constant :X_OFFSET
+      private_constant :X_OFFSET
+      private_constant :ABS_COOR
+      # @!endgroup
 
 
       def self.find_corners

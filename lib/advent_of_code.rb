@@ -10,9 +10,10 @@ module AdventOfCode
 
   # @!group Date Config
   #
-  START_DATE = Date.parse('2018-12-01').freeze
-  END_DATE   = Date.parse('2018-12-05').freeze
-  DATE_RANGE = (START_DATE..END_DATE).freeze
+  START_DATE           = Date.parse('2018-12-01').freeze
+  END_DATE             = Date.parse('2018-12-05').freeze
+  DATE_RANGE           = (START_DATE..END_DATE).freeze
+  FORMATTED_DATE_RANGE = DATE_RANGE.map { |date| date.strftime('%d') }
 
   # @!group Puzzle Config
   #
@@ -23,10 +24,10 @@ module AdventOfCode
   # Runs the entire advent calendar and prints solutions to console.
   #
   # @return [void]
-  def self.solve!(days: DATE_RANGE.map { |date| date.strftime('%d') }, types: PUZZLE_TYPES)
+  def self.solve!(days: FORMATTED_DATE_RANGE, types: PUZZLE_TYPES)
     days.each do |day|
       types.each do |type|
-        SolutionMessage.print(const_get(PUZZLE % {day: '%02d' % day, type: type}))
+        SolutionMessage.print(const_get(PUZZLE % {day: '%02i' % day, type: type}))
       end
     end
 

@@ -7,8 +7,6 @@ module AdventOfCode
     class December02 < Day
       include AdventOfCode::Inputs::December02Input
 
-      DATE = Date.parse(class_name)
-
       # Solves the December 2nd Silver Puzzle
       #
       # @return [Integer<6888>] the checksum of all given ids
@@ -23,10 +21,10 @@ module AdventOfCode
       SILVER_PUZZLE = {
         answer:     :calculate_checksum!,
         class_name: :December02,
-        date:       DATE,
+        date:       formatted_date,
         message:    'The resulting checksum:',
         type:       :SILVER
-      }
+      }.freeze
 
       # Solves the December 2nd Gold Puzzle
       #
@@ -48,10 +46,10 @@ module AdventOfCode
       GOLD_PUZZLE = {
         answer:     :find_similar_id_pair!,
         class_name: :December02,
-        date:       DATE,
+        date:       formatted_date,
         message:    'The characters shared by the ids:',
         type:       :GOLD
-      }
+      }.freeze
 
     end
   end

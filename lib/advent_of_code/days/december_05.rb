@@ -7,9 +7,10 @@ module AdventOfCode
     class December05 < Day
       include AdventOfCode::Inputs::December05Input
 
-      DATE = Date.parse(class_name)
-
-      # Pairs of units that will destroy each other in the reaction (eg: aA Aa)
+      # Pairs of units that will destroy each other in the reaction
+      # @example
+      #   Valid:   [Aa aA zZ Yy mM Mm]
+      #   Invalid: [aa AA ZZ Yz mN Nm]
       DESTRUCTION_PAIRS = /([[:upper:][:lower:]])(?!\1)(?i)\1/.freeze
 
       # Solves the December 5th Silver Puzzle
@@ -26,12 +27,13 @@ module AdventOfCode
       SILVER_PUZZLE = {
         answer:     :count_units_left!,
         class_name: :December05,
-        date:       DATE,
+        date:       formatted_date,
         message:    'Number of units left after reaction:',
         type:       :SILVER
-      }
+      }.freeze
 
       # Solves the December 5th Gold Puzzle
+      # @todo Look into short circuiting each loop if
       #
       # @return [Integer<4840>] the shortest chain after removing one of the building types
       def self.minimum_after_removing_problem_type!
@@ -43,10 +45,10 @@ module AdventOfCode
       GOLD_PUZZLE = {
         answer:     :minimum_after_removing_problem_type!,
         class_name: :December05,
-        date:       DATE,
+        date:       formatted_date,
         message:    'Number of units after removing problem type:',
         type:       :GOLD
-      }
+      }.freeze
 
     end
   end

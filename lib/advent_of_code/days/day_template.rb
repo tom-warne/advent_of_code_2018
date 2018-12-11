@@ -16,7 +16,7 @@ module AdventOfCode
       SILVER_PUZZLE = {
         answer:     :tbd_silver!,
         class_name: :DecemberXX,
-        date:       DATE,
+        date:       formatted_date,
         message:    ':',
         type:       :SILVER
       }
@@ -30,7 +30,7 @@ module AdventOfCode
       GOLD_PUZZLE = {
         answer:     :tbd_gold!,
         class_name: :DecemberXX,
-        date:       DATE,
+        date:       formatted_date,
         message:    ':',
         type:       :GOLD
       }

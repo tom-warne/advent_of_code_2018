@@ -124,13 +124,22 @@
           <div class="docstring">
   <div class="discussion">
     
-<p>Pairs of units that will destroy each other in the reaction (eg: aA Aa)</p>
+<p>Pairs of units that will destroy each other in the reaction</p>
 
 
   </div>
 </div>
 <div class="tags">
   
+  <div class="examples">
+    <p class="tag_title">Examples:</p>
+    
+      
+      <pre class="example code"><code>Valid:   [Aa aA zZ Yy mM Mm]
+Invalid: [aa AA ZZ Yz mN Nm]</code></pre>
+    
+  </div>
+
 
 </div>
         </dt>
@@ -145,7 +154,7 @@
   <span class='label'>date:</span>       <span class='const'><span class='object_link'><a href="#DATE-constant" title="AdventOfCode::Days::December05::DATE (constant)">DATE</a></span></span><span class='comma'>,</span>
   <span class='label'>message:</span>    <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Number of units left after reaction:</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
   <span class='label'>type:</span>       <span class='symbol'>:SILVER</span>
-<span class='rbrace'>}</span></pre></dd>
+<span class='rbrace'>}</span><span class='period'>.</span><span class='id identifier rubyid_freeze'>freeze</span></pre></dd>
       
         <dt id="GOLD_PUZZLE-constant" class="">GOLD_PUZZLE =
           
@@ -156,7 +165,7 @@
   <span class='label'>date:</span>       <span class='const'><span class='object_link'><a href="#DATE-constant" title="AdventOfCode::Days::December05::DATE (constant)">DATE</a></span></span><span class='comma'>,</span>
   <span class='label'>message:</span>    <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Number of units after removing problem type:</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
   <span class='label'>type:</span>       <span class='symbol'>:GOLD</span>
-<span class='rbrace'>}</span></pre></dd>
+<span class='rbrace'>}</span><span class='period'>.</span><span class='id identifier rubyid_freeze'>freeze</span></pre></dd>
       
     </dl>
   
@@ -325,15 +334,15 @@
       <pre class="lines">
 
 
-19
-20
-21
 22
 23
-24</pre>
+24
+25
+26
+27</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/advent_of_code/days/december_05.rb', line 19</span>
+      <pre class="code"><span class="info file"># File 'lib/advent_of_code/days/december_05.rb', line 22</span>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_count_units_left!'>count_units_left!</span><span class='lparen'>(</span><span class='label'>chain:</span> <span class='const'><span class='object_link'><a href="../Inputs/December05Input.html#POLYMER_CHAIN-constant" title="AdventOfCode::Inputs::December05Input::POLYMER_CHAIN (constant)">POLYMER_CHAIN</a></span></span><span class='rparen'>)</span>
   <span class='id identifier rubyid_orig_chain_length'>orig_chain_length</span> <span class='op'>=</span> <span class='id identifier rubyid_chain'>chain</span><span class='period'>.</span><span class='id identifier rubyid_length'>length</span>
@@ -358,6 +367,14 @@
 </h3><div class="docstring">
   <div class="discussion">
     
+  <div class="note todo">
+    <strong>TODO:</strong>
+    <div class='inline'>
+<p>Look into short circuiting each loop if</p>
+</div>
+  </div>
+
+
 <p>Solves the December 5th Gold Puzzle</p>
 
 
@@ -390,14 +407,14 @@
       <pre class="lines">
 
 
-37
-38
-39
-40
-41</pre>
+41
+42
+43
+44
+45</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/advent_of_code/days/december_05.rb', line 37</span>
+      <pre class="code"><span class="info file"># File 'lib/advent_of_code/days/december_05.rb', line 41</span>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_minimum_after_removing_problem_type!'>minimum_after_removing_problem_type!</span>
   <span class='lparen'>(</span><span class='CHAR'>?a</span><span class='op'>..</span><span class='CHAR'>?z</span><span class='rparen'>)</span>
@@ -414,7 +431,7 @@
 </div>
 
       <div id="footer">
-  Generated on Sun Dec  9 13:45:13 2018 by
+  Generated on Tue Dec 11 09:20:14 2018 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.16 (ruby-2.5.3).
 </div>

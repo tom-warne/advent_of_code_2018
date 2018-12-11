@@ -26,7 +26,7 @@ module AdventOfCode
     RESULT  = "#{DATE}%{type}#{MESSAGE} #{ANSWER}"
     # @!endgroup
 
-    # Fetches {Day} puzzle solution data, applies formats, and prints to terminal
+    # Fetches {Days::Day} puzzle solution data, applies formats, and prints to terminal
     #
     # @param  answer     [Symbol] puzzle solution method to be run
     # @param  class_name [Symbol]
@@ -37,7 +37,7 @@ module AdventOfCode
     def self.print(answer:, class_name:, date:, message:, type:)
       puts RESULT % {
         answer:  const_get("AdventOfCode::Days::#{class_name}").public_send(answer),
-        date:    date.strftime('%B %d'),
+        date:    date,
         message: message,
         type:    TYPES[type]
       }

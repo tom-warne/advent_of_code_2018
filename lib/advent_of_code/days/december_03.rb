@@ -2,93 +2,88 @@
 
 require_relative '../inputs/december_03_input.rb'
 
+# @note Don't ever do this in real life lol
+class Integer
+  def gt1
+    self > 1
+  end
+end
+
 module AdventOfCode
   module Days
     class December03 < Day
       include AdventOfCode::Inputs::December03Input
 
-      DATE = Date.parse(class_name)
-
       # Solves the December 3rd Silver Puzzle
       #
       # @return [Integer<114946>] the number of overlapping square inches of fabric
       def self.find_number_of_overlaps!
-        create_fabric!
-
-        fabric
-          .map { |row, cols| cols.map { |col, cell| cell > 1 }.count(true) }
-          .sum
+        FABRIC.values.flat_map(&:values).count(&:gt1)
       end
 
       SILVER_PUZZLE = {
         answer:     :find_number_of_overlaps!,
         class_name: :December03,
-        date:       DATE,
+        date:       formatted_date,
         message:    'The number of overlapping square inches of fabric:',
         type:       :SILVER
-      }
+      }.freeze
 
       # Solves the December 3rd Gold Puzzle
       #
       # @return [Int<877>] the id of the only claim that is not overlapping
       def self.find_claim_without_overlap!
-        create_fabric!
-
-        parsed_input.each.with_index(1) do |(left, top, width, height), index|
-          overlap = false
-          width.times do |w|
-            height.times do |h|
-              break overlap = true if fabric[left + w][top + h] > 1
+        PARSED_FABRIC_CUTS.each.with_index(1) do |(left, top, width, height), index|
+          catch :overlap do
+            width.times do |w|
+              height.times do |h|
+                throw :overlap if FABRIC[left + w][top + h] > 1
+              end
             end
-            break if overlap
+            return index
           end
-          return index unless overlap
         end
       end
 
       GOLD_PUZZLE = {
         answer:     :find_claim_without_overlap!,
         class_name: :December03,
-        date:       DATE,
+        date:       formatted_date,
         message:   'The only claim without overlap:',
         type:      :GOLD
-      }
+      }.freeze
 
       private
 
-      # Map claims onto the fabric
-      #
-      # @private
-      def self.create_fabric!
-        return @fabric if defined? @fabric
+      # @! group Private Constants
 
-        parsed_input.each do |left, top, width, height|
-          width.times do |w|
-            height.times do |h|
-              self.fabric[left + w][top + h] += 1
+      # Parse the cuts into:
+      #   [[left, top, width, height],...]
+      #
+      PARSED_FABRIC_CUTS =
+        FABRIC_CUTS.split("\n").map do |str|
+          str.slice((str.index('@') + 2)..-1).split(/[,:x]/).map(&:to_i)
+        end
+
+      # Map claims onto fabric. Each unit of fabric
+      # contains how many times it is used.
+      # @example
+      #   [[1, 2, 1, 1, 3, 4, ...]
+      #    [2, 2, 1, 2, 2, 4, ...]
+      #    [2, 2, 1, 1, 2, 4, ...], ...]
+      FABRIC =
+        PARSED_FABRIC_CUTS
+          .each_with_object(COUNTING_HASH_2D.dup) do |(left, top, width, height), fabric|
+            width.times do |w|
+              height.times do |h|
+                fabric[left + w][top + h] += 1
+              end
             end
           end
-        end
-      end
 
-      # Matrix for plotting fabric cuts.
-      #
-      # @private
-      def self.fabric
-        return @fabric if defined? @fabric
-        @fabric = Hash.new { |h, k| h[k] = Hash.new(0) }
-      end
-
-      # Parse the puzzle input into a usable format
-      #
-      # @private
-      def self.parsed_input
-        FABRIC_CUTS
-          .split("\n")
-          .map { |str| str.slice((str.index('@') + 2)..-1).split(/[,:x ]/) }
-          .map { |arr| arr.reject(&:empty?) }
-          .map { |arr| arr.map(&:to_i) }
-      end
+      private_constant :PARSED_FABRIC_CUTS
+      private_constant :FABRIC
+      # @!endgroup
 
     end
   end
