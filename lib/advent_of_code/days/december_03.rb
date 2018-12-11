@@ -2,13 +2,6 @@
 
 require_relative '../inputs/december_03_input.rb'
 
-# @note Don't ever do this in real life lol
-class Integer
-  def gt1
-    self > 1
-  end
-end
-
 module AdventOfCode
   module Days
     class December03 < Day
@@ -18,7 +11,7 @@ module AdventOfCode
       #
       # @return [Integer<114946>] the number of overlapping square inches of fabric
       def self.find_number_of_overlaps!
-        FABRIC.values.flat_map(&:values).count(&:gt1)
+        FABRIC.values.flat_map(&:values).count { |val| val > 1 }
       end
 
       SILVER_PUZZLE = {
