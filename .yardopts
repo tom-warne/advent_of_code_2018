@@ -1,3 +1,5 @@
 --default-return 'void'
 --private
 --protected
+
+--type-name-tag set:"SET"

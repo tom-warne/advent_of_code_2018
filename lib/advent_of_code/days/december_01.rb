@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
-require_relative '../inputs/december_01_input.rb'
+require          'set'
+require 'benchmark'
+require_relative '../inputs/december_01_input'
 
 module AdventOfCode
   module Days
@@ -17,15 +19,15 @@ module AdventOfCode
 
         # Solves the December 1st Gold Puzzle
         #
-        # @param  freqs [Hash<Integer, Nil>] the table of frequencies that +freq+ is being appended to
-        # @param  freq  [Integer] the frequency to start the table on
-        # @return [Integer<367>] the first frequency that is already contained in +freqs+
-        def find_repeated_frequency!(freqs: {INITIAL_FREQUENCY => nil}, freq: INITIAL_FREQUENCY)
+        # @param  list [Set] the list of known frequencies
+        # @param  freq [Integer] initial frequency to apply +change+ to
+        # @return [Integer<367>] the first frequency to repeat in +list+
+        def find_repeated_frequency!(list: Set.new, freq: INITIAL_FREQUENCY)
           FREQUENCY_CHANGES.each do |change|
+            return freq unless list.add?(freq)
             freq += change
-            freqs.has_key?(freq) ? (return freq) : freqs[freq] = nil
           end
-          find_repeated_frequency!(freqs: freqs, freq: freq)
+          find_repeated_frequency!(list: list, freq: freq)
         end
       end
 

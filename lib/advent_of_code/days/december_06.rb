@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require_relative '../inputs/december_06_input.rb'
+require_relative '../inputs/december_06_input'
 
 module AdventOfCode
   module Days
@@ -53,13 +53,13 @@ module AdventOfCode
       # @note Grid is built and accessed via <tt>grid[y][x]</tt>
       # @see Struct
       class Grid
-        attr_reader :layout, :territories
 
+        # @set layout [Array<{rows}>] 2D Array specifying the active {Grid Grid} area.
         def initialize
           @layout = rows { cols }
         end
 
-        # @return [Integer] the largest territory on the {Grid}
+        # @return [Integer] the largest territory on the {Grid Grid}
         def largest_territory
           territories.values.max
         end
@@ -170,13 +170,13 @@ module AdventOfCode
         end
 
         # @note memoized as this is a *very* costly operation
-        # @return [Array<Point>] points with territories eligible for largest
+        # @return [Array<Point>] points with territories eligible to be the largest
         def potential_largest_territory_ids
           return @potential_largest_territory_ids if defined? @potential_largest_territory_ids
           @potential_largest_territory_ids = all_point_ids - edge_point_ids
         end
 
-        # @param  block [Proc] the block used to build the columns(*cols*) in the row
+        # @param  block [Proc] the block used to build the cols in the row
         # @see    GRID_HEIGHT
         # @return [Array<{cols}>]
         def rows(&block)
@@ -184,12 +184,11 @@ module AdventOfCode
         end
 
         # @todo Another area for improvement by the creation of the +Point+ class
-        # @param  params [Hash]
-        # @option params [Integer] :id   (nil)
-        # @option params [Integer] :step (0)
+        # @option params [Integer] :id
+        # @option params [Integer] :step
         # @option params [Integer] :y
         # @option params [Integer] :x
-        # @return [Hash<Integer, Integer, Integer, Integer>] the next +Point+ of interest
+        # @return [Point]
         def set_next_point(params)
           @layout[params[:y]][params[:x]] = params
         end

@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require_relative '../inputs/december_02_input.rb'
+require_relative '../inputs/december_02_input'
 
 module AdventOfCode
   module Days
