@@ -7,11 +7,30 @@ module AdventOfCode
     class December03 < Day
       include AdventOfCode::Inputs::December03Input
 
-      # Solves the December 3rd Silver Puzzle
-      #
-      # @return [Integer<114946>] the number of overlapping square inches of fabric
-      def self.find_number_of_overlaps!
-        FABRIC.values.flat_map(&:values).count { |val| val > 1 }
+      class << self
+
+        # Solves the December 3rd Silver Puzzle
+        #
+        # @return [Integer<114946>] the number of overlapping square inches of fabric
+        def find_number_of_overlaps!
+          FABRIC.values.flat_map(&:values).count { |val| val > 1 }
+        end
+
+        # Solves the December 3rd Gold Puzzle
+        #
+        # @return [Int<877>] the id of the only claim that is not overlapping
+        def find_claim_without_overlap!
+          PARSED_FABRIC_CUTS.each.with_index(1) do |(left, top, width, height), index|
+            catch :overlap do
+              width.times do |w|
+                height.times do |h|
+                  throw :overlap if FABRIC[left + w][top + h] > 1
+                end
+              end
+              return index
+            end
+          end
+        end
       end
 
       SILVER_PUZZLE = {
@@ -21,22 +40,6 @@ module AdventOfCode
         message:    'The number of overlapping square inches of fabric:',
         type:       :SILVER
       }.freeze
-
-      # Solves the December 3rd Gold Puzzle
-      #
-      # @return [Int<877>] the id of the only claim that is not overlapping
-      def self.find_claim_without_overlap!
-        PARSED_FABRIC_CUTS.each.with_index(1) do |(left, top, width, height), index|
-          catch :overlap do
-            width.times do |w|
-              height.times do |h|
-                throw :overlap if FABRIC[left + w][top + h] > 1
-              end
-            end
-            return index
-          end
-        end
-      end
 
       GOLD_PUZZLE = {
         answer:     :find_claim_without_overlap!,
@@ -49,7 +52,6 @@ module AdventOfCode
       private
 
       # @! group Private Constants
-
       # Parse the cuts into:
       #   [[left, top, width, height],...]
       #
@@ -77,7 +79,6 @@ module AdventOfCode
       private_constant :PARSED_FABRIC_CUTS
       private_constant :FABRIC
       # @!endgroup
-
     end
   end
 end

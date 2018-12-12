@@ -3,7 +3,6 @@
 module AdventOfCode
   module Inputs
     module December01Input
-      INITIAL_FREQUENCY = 0
       FREQUENCY_CHANGES = [
         -19,
         +8,

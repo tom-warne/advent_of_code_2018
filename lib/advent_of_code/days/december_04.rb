@@ -7,20 +7,30 @@ module AdventOfCode
     class December04 < Day
       include AdventOfCode::Inputs::December04Input
 
-      # Marker for storing which guard we are working with.
-      @@active_guard = nil
+      class << self
 
-      # Solves the December 4th Silver Puzzle
-      #
-      # @param  sort_method [Symbol] method for sorting the initial parsed input
-      # @return [Integer<11367>] id of sleepiest guard * minute most often asleep
-      def self.determine_sleepiest_guard!(sort_method: :sum)
-        PARSED_INPUT
-          .sort_by { |_, sleep_times| sleep_times.values.public_send(sort_method) }
-          .last
-          .each_cons(2)
-          .map { |(guard, sleep_count)| guard * sleep_count.invert.sort.last.last }
-          .first
+        # Marker for storing which guard we are working with.
+        @@active_guard = nil
+
+        # Solves the December 4th Silver Puzzle
+        #
+        # @param  sort_method [Symbol] method for sorting the initial parsed input
+        # @return [Integer<11367>] id of sleepiest guard * minute most often asleep
+        def determine_sleepiest_guard!(sort_method: :sum)
+          PARSED_INPUT
+            .sort_by { |_, sleep_times| sleep_times.values.public_send(sort_method) }
+            .last
+            .each_cons(2)
+            .map { |(guard, sleep_count)| guard * sleep_count.invert.sort.last.last }
+            .first
+        end
+
+        # Solves the December 4th Gold Puzzle
+        #
+        # @return [Int<36896>] id of most consistant sleeping guard * most likely time of sleep
+        def find_most_common_time_to_sleep!
+          determine_sleepiest_guard!(sort_method: :max)
+        end
       end
 
       SILVER_PUZZLE = {
@@ -30,13 +40,6 @@ module AdventOfCode
         message:    'The sleepiest guard id * the minute most often asleep:',
         type:       :SILVER
       }.freeze
-
-      # Solves the December 4th Gold Puzzle
-      #
-      # @return [Int<36896>] id of most consistant sleeping guard * most likely time of sleep
-      def self.find_most_common_time_to_sleep!
-        determine_sleepiest_guard!(sort_method: :max)
-      end
 
       GOLD_PUZZLE = {
         answer:     :find_most_common_time_to_sleep!,
@@ -62,10 +65,11 @@ module AdventOfCode
           .map { |datum| [DateTime.parse(datum.scan(/\[.+\]/).first), datum.sub($&, '')] }
           .freeze
 
-      # Formats the input data into a count of how many times a guard is asleep at any given time
+      # Formats the input data into a count of how many
+      # times a guard is asleep at any given time
       #
       PARSED_INPUT =
-        Hash.new { |h, k| h[k] = Hash.new(0) }.tap do |sleep_schedules|
+        COUNTING_HASH_2D.dup.tap do |sleep_schedules|
           SORTED_INPUT.each.with_index(1) do |(date, action), index|
             case action
             when /Guard/
@@ -82,7 +86,6 @@ module AdventOfCode
       private_constant :SORTED_INPUT
       private_constant :PARSED_INPUT
       # @!endgroup
-
     end
   end
 end

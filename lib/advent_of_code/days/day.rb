@@ -16,7 +16,7 @@ module AdventOfCode
 
       COUNTING_HASH    = Hash.new(0).freeze
       COUNTING_HASH_2D = Hash.new { |h, k| h[k] = COUNTING_HASH.dup }.freeze
-      INFINITE_HASH    = Hash.new { |h, k| h[k] = Hash.new(&h.default_proc) }
+      INFINITE_HASH    = Hash.new { |h, k| h[k] = Hash.new(&h.default_proc) }.freeze
     end
   end
 end

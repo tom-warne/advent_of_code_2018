@@ -87,12 +87,12 @@
 
   
   
-  
-  
   <dl>
-      <dt>Includes:</dt>
+      <dt>Extended by:</dt>
       <dd><span class='object_link'><a href="../Inputs/December05Input.html" title="AdventOfCode::Inputs::December05Input (module)">Inputs::December05Input</a></span></dd>
   </dl>
+  
+  
   
   
 
@@ -115,10 +115,27 @@
 
     <dl class="constants">
       
-        <dt id="DATE-constant" class="">DATE =
+        <dt id="SILVER_PUZZLE-constant" class="">SILVER_PUZZLE =
           
         </dt>
-        <dd><pre class="code"><span class='const'>Date</span><span class='period'>.</span><span class='id identifier rubyid_parse'>parse</span><span class='lparen'>(</span><span class='id identifier rubyid_class_name'>class_name</span><span class='rparen'>)</span></pre></dd>
+        <dd><pre class="code"><span class='lbrace'>{</span>
+  <span class='label'>answer:</span>     <span class='symbol'>:count_units_left!</span><span class='comma'>,</span>
+  <span class='label'>class_name:</span> <span class='symbol'>:December05</span><span class='comma'>,</span>
+  <span class='label'>date:</span>       <span class='id identifier rubyid_formatted_date'>formatted_date</span><span class='comma'>,</span>
+  <span class='label'>message:</span>    <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Number of units left after reaction:</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+  <span class='label'>type:</span>       <span class='symbol'>:SILVER</span>
+<span class='rbrace'>}</span><span class='period'>.</span><span class='id identifier rubyid_freeze'>freeze</span></pre></dd>
+      
+        <dt id="GOLD_PUZZLE-constant" class="">GOLD_PUZZLE =
+          
+        </dt>
+        <dd><pre class="code"><span class='lbrace'>{</span>
+  <span class='label'>answer:</span>     <span class='symbol'>:minimum_after_removing_problem_type!</span><span class='comma'>,</span>
+  <span class='label'>class_name:</span> <span class='symbol'>:December05</span><span class='comma'>,</span>
+  <span class='label'>date:</span>       <span class='id identifier rubyid_formatted_date'>formatted_date</span><span class='comma'>,</span>
+  <span class='label'>message:</span>    <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Number of units after removing problem type:</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+  <span class='label'>type:</span>       <span class='symbol'>:GOLD</span>
+<span class='rbrace'>}</span><span class='period'>.</span><span class='id identifier rubyid_freeze'>freeze</span></pre></dd>
       
         <dt id="DESTRUCTION_PAIRS-constant" class="">DESTRUCTION_PAIRS =
           <div class="docstring">
@@ -145,28 +162,6 @@ Invalid: [aa AA ZZ Yz mN Nm]</code></pre>
         </dt>
         <dd><pre class="code"><span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>([[:upper:][:lower:]])(?!\1)(?i)\1</span><span class='regexp_end'>/</span></span><span class='period'>.</span><span class='id identifier rubyid_freeze'>freeze</span></pre></dd>
       
-        <dt id="SILVER_PUZZLE-constant" class="">SILVER_PUZZLE =
-          
-        </dt>
-        <dd><pre class="code"><span class='lbrace'>{</span>
-  <span class='label'>answer:</span>     <span class='symbol'>:count_units_left!</span><span class='comma'>,</span>
-  <span class='label'>class_name:</span> <span class='symbol'>:December05</span><span class='comma'>,</span>
-  <span class='label'>date:</span>       <span class='const'><span class='object_link'><a href="#DATE-constant" title="AdventOfCode::Days::December05::DATE (constant)">DATE</a></span></span><span class='comma'>,</span>
-  <span class='label'>message:</span>    <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Number of units left after reaction:</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
-  <span class='label'>type:</span>       <span class='symbol'>:SILVER</span>
-<span class='rbrace'>}</span><span class='period'>.</span><span class='id identifier rubyid_freeze'>freeze</span></pre></dd>
-      
-        <dt id="GOLD_PUZZLE-constant" class="">GOLD_PUZZLE =
-          
-        </dt>
-        <dd><pre class="code"><span class='lbrace'>{</span>
-  <span class='label'>answer:</span>     <span class='symbol'>:minimum_after_removing_problem_type!</span><span class='comma'>,</span>
-  <span class='label'>class_name:</span> <span class='symbol'>:December05</span><span class='comma'>,</span>
-  <span class='label'>date:</span>       <span class='const'><span class='object_link'><a href="#DATE-constant" title="AdventOfCode::Days::December05::DATE (constant)">DATE</a></span></span><span class='comma'>,</span>
-  <span class='label'>message:</span>    <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Number of units after removing problem type:</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
-  <span class='label'>type:</span>       <span class='symbol'>:GOLD</span>
-<span class='rbrace'>}</span><span class='period'>.</span><span class='id identifier rubyid_freeze'>freeze</span></pre></dd>
-      
     </dl>
   
 
@@ -182,7 +177,7 @@ Invalid: [aa AA ZZ Yz mN Nm]</code></pre>
   
   <h3 class="inherited">Constants inherited
      from <span class='object_link'><a href="Day.html" title="AdventOfCode::Days::Day (class)">Day</a></span></h3>
-  <p class="inherited"><span class='object_link'><a href="Day.html#PUZZLE_TYPES-constant" title="AdventOfCode::Days::Day::PUZZLE_TYPES (constant)">AdventOfCode::Days::Day::PUZZLE_TYPES</a></span></p>
+  <p class="inherited"><span class='object_link'><a href="Day.html#COUNTING_HASH-constant" title="AdventOfCode::Days::Day::COUNTING_HASH (constant)">AdventOfCode::Days::Day::COUNTING_HASH</a></span>, <span class='object_link'><a href="Day.html#COUNTING_HASH_2D-constant" title="AdventOfCode::Days::Day::COUNTING_HASH_2D (constant)">AdventOfCode::Days::Day::COUNTING_HASH_2D</a></span>, <span class='object_link'><a href="Day.html#INFINITE_HASH-constant" title="AdventOfCode::Days::Day::INFINITE_HASH (constant)">AdventOfCode::Days::Day::INFINITE_HASH</a></span>, <span class='object_link'><a href="Day.html#PUZZLE_TYPES-constant" title="AdventOfCode::Days::Day::PUZZLE_TYPES (constant)">AdventOfCode::Days::Day::PUZZLE_TYPES</a></span></p>
 
 
 
@@ -263,7 +258,7 @@ Invalid: [aa AA ZZ Yz mN Nm]</code></pre>
   
   
   <h3 class="inherited">Methods inherited from <span class='object_link'><a href="Day.html" title="AdventOfCode::Days::Day (class)">Day</a></span></h3>
-  <p class="inherited"><span class='object_link'><a href="Day.html#class_name-class_method" title="AdventOfCode::Days::Day.class_name (method)">class_name</a></span></p>
+  <p class="inherited"><span class='object_link'><a href="Day.html#class_name-class_method" title="AdventOfCode::Days::Day.class_name (method)">class_name</a></span>, <span class='object_link'><a href="Day.html#formatted_date-class_method" title="AdventOfCode::Days::Day.formatted_date (method)">formatted_date</a></span></p>
 
 
   <div id="class_method_details" class="method_details_list">
@@ -334,17 +329,17 @@ Invalid: [aa AA ZZ Yz mN Nm]</code></pre>
       <pre class="lines">
 
 
-22
-23
-24
-25
-26
-27</pre>
+15
+16
+17
+18
+19
+20</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/advent_of_code/days/december_05.rb', line 22</span>
+      <pre class="code"><span class="info file"># File 'lib/advent_of_code/days/december_05.rb', line 15</span>
 
-<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_count_units_left!'>count_units_left!</span><span class='lparen'>(</span><span class='label'>chain:</span> <span class='const'><span class='object_link'><a href="../Inputs/December05Input.html#POLYMER_CHAIN-constant" title="AdventOfCode::Inputs::December05Input::POLYMER_CHAIN (constant)">POLYMER_CHAIN</a></span></span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_count_units_left!'>count_units_left!</span><span class='lparen'>(</span><span class='label'>chain:</span> <span class='const'><span class='object_link'><a href="../Inputs/December05Input.html#POLYMER_CHAIN-constant" title="AdventOfCode::Inputs::December05Input::POLYMER_CHAIN (constant)">POLYMER_CHAIN</a></span></span><span class='rparen'>)</span>
   <span class='id identifier rubyid_orig_chain_length'>orig_chain_length</span> <span class='op'>=</span> <span class='id identifier rubyid_chain'>chain</span><span class='period'>.</span><span class='id identifier rubyid_length'>length</span>
   <span class='lparen'>(</span><span class='op'>+</span><span class='id identifier rubyid_chain'>chain</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_gsub!'>gsub!</span><span class='lparen'>(</span><span class='const'><span class='object_link'><a href="#DESTRUCTION_PAIRS-constant" title="AdventOfCode::Days::December05::DESTRUCTION_PAIRS (constant)">DESTRUCTION_PAIRS</a></span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
 
@@ -367,14 +362,6 @@ Invalid: [aa AA ZZ Yz mN Nm]</code></pre>
 </h3><div class="docstring">
   <div class="discussion">
     
-  <div class="note todo">
-    <strong>TODO:</strong>
-    <div class='inline'>
-<p>Look into short circuiting each loop if</p>
-</div>
-  </div>
-
-
 <p>Solves the December 5th Gold Puzzle</p>
 
 
@@ -407,16 +394,16 @@ Invalid: [aa AA ZZ Yz mN Nm]</code></pre>
       <pre class="lines">
 
 
-41
-42
-43
-44
-45</pre>
+25
+26
+27
+28
+29</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/advent_of_code/days/december_05.rb', line 41</span>
+      <pre class="code"><span class="info file"># File 'lib/advent_of_code/days/december_05.rb', line 25</span>
 
-<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_minimum_after_removing_problem_type!'>minimum_after_removing_problem_type!</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_minimum_after_removing_problem_type!'>minimum_after_removing_problem_type!</span>
   <span class='lparen'>(</span><span class='CHAR'>?a</span><span class='op'>..</span><span class='CHAR'>?z</span><span class='rparen'>)</span>
     <span class='period'>.</span><span class='id identifier rubyid_map'>map</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_c'>c</span><span class='op'>|</span> <span class='id identifier rubyid_count_units_left!'>count_units_left!</span><span class='lparen'>(</span><span class='label'>chain:</span> <span class='const'><span class='object_link'><a href="../Inputs/December05Input.html#POLYMER_CHAIN-constant" title="AdventOfCode::Inputs::December05Input::POLYMER_CHAIN (constant)">POLYMER_CHAIN</a></span></span><span class='period'>.</span><span class='id identifier rubyid_gsub'>gsub</span><span class='lparen'>(</span><span class='tstring'><span class='regexp_beg'>%r/</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_c'>c</span><span class='embexpr_end'>}</span><span class='tstring_content'>|</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_c'>c</span><span class='period'>.</span><span class='id identifier rubyid_upcase'>upcase</span><span class='embexpr_end'>}</span><span class='regexp_end'>/</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span><span class='rparen'>)</span> <span class='rbrace'>}</span>
     <span class='period'>.</span><span class='id identifier rubyid_min'>min</span>
@@ -431,7 +418,7 @@ Invalid: [aa AA ZZ Yz mN Nm]</code></pre>
 </div>
 
       <div id="footer">
-  Generated on Tue Dec 11 09:20:14 2018 by
+  Generated on Wed Dec 12 04:20:46 2018 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.16 (ruby-2.5.3).
 </div>

@@ -11,7 +11,7 @@ module AdventOfCode
   # @!group Date Config
   #
   START_DATE           = Date.parse('2018-12-01').freeze
-  END_DATE             = Date.parse('2018-12-05').freeze
+  END_DATE             = Date.parse('2018-12-06').freeze
   DATE_RANGE           = (START_DATE..END_DATE).freeze
   FORMATTED_DATE_RANGE = DATE_RANGE.map { |date| date.strftime('%d') }
 
