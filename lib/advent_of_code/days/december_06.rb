@@ -15,9 +15,7 @@ module AdventOfCode
           Grid.new
             .populate!
             .map_territories!
-            .territories
-            .values
-            .max
+            .largest_territory
         end
 
         # Solves the December 6th Gold Puzzle
@@ -52,51 +50,53 @@ module AdventOfCode
       # @todo The individual elements and their logic should be moved to a +Point+ class.
       #
       # @note The grid is (316 x 294)
-      # @note Grid is built and accessed via +grid[y][x]+
+      # @note Grid is built and accessed via <tt>grid[y][x]</tt>
       # @see Struct
       class Grid
-        attr_reader :current_step, :edge_points, :layout, :territories
+        attr_reader :layout, :territories
 
-        # @param coordinates [Integer]
         def initialize
-          @current_step = 0
-          @layout       = row { column }
+          @layout = rows { cols }
         end
 
-        # From each initial point begin mapping territory based on {MOVEMENT}.
+        # @return [Integer] the largest territory on the {Grid}
+        def largest_territory
+          territories.values.max
+        end
+
+        # From each initial point begin mapping territory based on {MOVEMENTS}.
         # A +Point+ can claim territory, share territory, or be blocked.
         # The territories will continue to map until every Point is occupied.
         # @note Territories that touch the layout edge are Infinite by definition.
         #
         # @return [self] for chaining
         def map_territories!
-          until grid_is_full?
-            active_points(@current_step).each do |id:, step:, y:, x:|
+          INITIAL_STEP.step(by: 1) do |current_step|
+            active_points(current_step).each do |id:, step:, y:, x:|
               MOVEMENTS.each do |(Δx, Δy)|
                 next_y, next_x = (y + Δy), (x + Δx)
 
-                next unless RANGE_Y.cover?(next_y)
-                next unless RANGE_X.cover?(next_x)
+                next unless [RANGE_Y.cover?(next_y), RANGE_X.cover?(next_x)].all?
 
                 case next_point = point(next_y, next_x)
                 when NilClass
-                  set_next_point({id: id, step: next_step, y: next_y, x: next_x})
+                  set_next_point({id: id, step: current_step.next, y: next_y, x: next_x})
                 when Hash
                   next if next_point[:id] == id
 
-                  case next_point[:step] <=> next_step
+                  case next_point[:step] <=> current_step.next
                   when -1 then next
                   when 0  then next_point[:id] = ?.
                   end
                 end
+
               end
             end
-            @current_step += 1
+            return self if grid_is_full?
           end
-          self
         end
 
-        # Insert an +INITIAL_POINT+ into each element defined by +RELATIVE_COORDINATES+.
+        # Insert an {INITIAL_POINT} into each element defined by {RELATIVE_COORDINATES}.
         # @see INITIAL_POINT
         # @see RELATIVE_COORDINATES
         # @return [self] for chaining
@@ -107,11 +107,11 @@ module AdventOfCode
           self
         end
 
-        # @todo documentation
+        # @return [Array<Integer, Integer>] +Array<Point.id, count(Point.id)>+
         def territories
           @layout
             .flatten
-            .select { |id:, **_| potential_point_ids.include?(id) }
+            .select { |id:, **_| potential_largest_territory_ids.include?(id) }
             .each_with_object(Day::COUNTING_HASH.dup) { |point, memo| memo[point[:id]] += 1 }
         end
 
@@ -126,13 +126,15 @@ module AdventOfCode
         end
 
         # List of all initial ids defining the unique territories
+        #
         # @return [Array<Integer>]
         def all_point_ids
           STARTING_POINT_IDS
         end
 
-        # @return [Array]
-        def column
+        # @see    GRID_WIDTH
+        # @return [Array<Point>]
+        def cols
           Array.new(GRID_WIDTH) { nil }
         end
 
@@ -147,7 +149,7 @@ module AdventOfCode
             .select { |point| EDGES_X.include?(point[:x]) || EDGES_Y.include?(point[:y]) }
         end
 
-        # @see    edge_points
+        # @see edge_points
         # @return [Array<Integer>] ids of points to be removed from consideration
         def edge_point_ids
           edge_points.map { |point| point[:id] }.uniq
@@ -156,11 +158,6 @@ module AdventOfCode
         # @return [Boolean]
         def grid_is_full?
           @layout.flatten.count(nil).zero?
-        end
-
-        # @return [Integer]
-        def next_step
-          @current_step + 1
         end
 
         # @todo A lot of business logic becomes easier if +Point+ becomes a class.
@@ -172,16 +169,17 @@ module AdventOfCode
           @layout[y][x]
         end
 
-        # @todo documentation
         # @note memoized as this is a *very* costly operation
-        def potential_point_ids
-          return @potential_point_ids if defined? @potential_point_ids
-          @potential_point_ids = all_point_ids - edge_point_ids
+        # @return [Array<Point>] points with territories eligible for largest
+        def potential_largest_territory_ids
+          return @potential_largest_territory_ids if defined? @potential_largest_territory_ids
+          @potential_largest_territory_ids = all_point_ids - edge_point_ids
         end
 
-        # @param  block [Proc] the block used to build the columns in the row
-        # @return [Array<Array<nil>>]
-        def row(&block)
+        # @param  block [Proc] the block used to build the columns(*cols*) in the row
+        # @see    GRID_HEIGHT
+        # @return [Array<{cols}>]
+        def rows(&block)
           Array.new(GRID_HEIGHT, &block)
         end
 
@@ -191,7 +189,7 @@ module AdventOfCode
         # @option params [Integer] :step (0)
         # @option params [Integer] :y
         # @option params [Integer] :x
-        # @return [Hash<Integer, Integer, Integer, Integer>] the next of +Point+ of interest
+        # @return [Hash<Integer, Integer, Integer, Integer>] the next +Point+ of interest
         def set_next_point(params)
           @layout[params[:y]][params[:x]] = params
         end
@@ -216,8 +214,8 @@ module AdventOfCode
 
         RANGE_Y     = (UPPER_LEFT_CORNER.last..LOWER_RIGHT_CORNER.last).freeze   # @note (0..294)
         RANGE_X     = (UPPER_LEFT_CORNER.first..LOWER_RIGHT_CORNER.first).freeze # @note (0..316)
-        EDGES_Y     = [RANGE_Y.begin, RANGE_Y.end].freeze # @note [0, 294]
-        EDGES_X     = [RANGE_X.begin, RANGE_X.end].freeze # @note [0, 316]
+        EDGES_Y     = [RANGE_Y.begin, RANGE_Y.end].freeze # @note (0, 294)
+        EDGES_X     = [RANGE_X.begin, RANGE_X.end].freeze # @note (0, 316)
         GRID_HEIGHT = RANGE_Y.size.freeze # @note 294
         GRID_WIDTH  = RANGE_X.size.freeze # @note 316
         private_constant :STARTING_POINT_COUNT, :STARTING_POINT_IDS
@@ -235,6 +233,7 @@ module AdventOfCode
         # During each iteration a points influence can
         # advance one element in every direction.
         MOVEMENTS = [[1, 0], [-1, 0], [0, 1], [0, -1]].freeze
+        private_constant :MOVEMENTS
       end
 
     end
